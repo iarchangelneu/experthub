@@ -215,6 +215,8 @@ header {
         width: 100%;
         height: auto;
         border-radius: 15px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
         background: rgba(164, 164, 164, 0.13);
         box-shadow: -40.83333px 40.83333px 40.83333px 0px rgba(255, 255, 255, 0.13) inset, 40.83333px -40.83333px 40.83333px 0px rgba(165, 165, 165, 0.13) inset;
         backdrop-filter: blur(44.91666793823242px);
@@ -289,7 +291,7 @@ header {
                         font-weight: 400;
                         line-height: 130%;
                         font-family: var(--mon);
-                        color: #000;
+                        color: #fff;
 
                         @media (max-width: 1024px) {
                             font-size: 16px;
