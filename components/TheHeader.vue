@@ -46,41 +46,6 @@
             </div>
         </div>
     </header>
-
-    <div class="cart" :class="{ cartOpen: cartOpen }">
-        <div class="d-flex align-items-center justify-content-between">
-            <h2>Корзина</h2>
-            <img src="@/assets/img/closecart.svg" @click="cartOpen = !cartOpen" alt="" loading="lazy"
-                style="cursor: pointer;">
-        </div>
-
-        <div class="cart__body">
-            <div class="cart__item">
-                <img src="@/assets/img/cart.png" alt="" loading="lazy">
-                <h3>Блюда высокой кухни со всех стран</h3>
-
-                <div>
-                    <img src="@/assets/img/trash.svg" alt="" loading="lazy" style="cursor: pointer;">
-
-                    <small>11 540 ₸</small>
-                </div>
-            </div>
-            <div class="cart__item">
-                <img src="@/assets/img/cart.png" alt="" loading="lazy">
-                <h3>Блюда высокой кухни со всех стран</h3>
-
-                <div>
-                    <img src="@/assets/img/trash.svg" alt="" loading="lazy" style="cursor: pointer;">
-
-                    <small>11 540 ₸</small>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <NuxtLink to="/complete-buy">Перейти к оформлению</NuxtLink>
-            </div>
-        </div>
-    </div>
 </template>
 <script>
 //import global from '~/mixins/global';
