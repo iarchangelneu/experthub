@@ -504,7 +504,7 @@ useSeoMeta({
 </script>
 <style lang="scss" scoped>
 .scale-down {
-    transform: scaleY(0.85);
+    transform: scaleY(0.9);
     transform-origin: top center;
     transition: transform 0.3s ease;
 }
@@ -548,7 +548,7 @@ useSeoMeta({
 
             .review__nav {
                 position: absolute;
-                margin-top: -40px;
+                margin-top: -20px;
                 right: 0;
                 z-index: 10;
 
