@@ -783,6 +783,7 @@ useSeoMeta({
 
                 a {
                     background: #000;
+                    text-decoration: none;
 
                     &:hover {
                         background: #373737;
@@ -827,6 +828,7 @@ useSeoMeta({
             color: #fff;
             transition: all .3s ease;
             display: inline-block;
+            text-decoration: none;
 
             &:hover {
                 background: #004692;
@@ -952,6 +954,7 @@ useSeoMeta({
 
                 a {
                     background: #000;
+                    text-decoration: none;
 
                     &:hover {
                         background: #373737;
@@ -996,6 +999,7 @@ useSeoMeta({
             color: #fff;
             transition: all .3s ease;
             display: inline-block;
+            text-decoration: none;
 
             &:hover {
                 background: #004692;
