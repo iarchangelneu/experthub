@@ -26,14 +26,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -41,14 +39,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -56,14 +52,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -71,14 +65,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -86,14 +78,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -101,14 +91,12 @@
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Юрист</h1>
-                                <h2>Елена Туманова</h2>
-                                <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                    сферах права</p>
-                                <div class="text-center">
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Юрист</h1>
+                            <h2>Елена Туманова</h2>
+                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
+                                сферах права</p>
+                            <div class="text-center">
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -169,105 +157,105 @@
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций1
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
 
-                            <div class="popular__body">
-                                <h1>Квартальные документы</h1>
-                                <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций
-                                </p>
-                                <div class="text-center">
-                                    <h2>23 000 ₸</h2>
-                                    <NuxtLink to="/">Подробнее</NuxtLink>
-                                </div>
+                            <h1>Квартальные документы</h1>
+                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
+                                организаций
+                            </p>
+                            <div class="text-center">
+                                <h2>23 000 ₸</h2>
+                                <NuxtLink to="/">Подробнее</NuxtLink>
                             </div>
+
                         </div>
                     </swiper-slide>
 
@@ -745,51 +733,56 @@ useSeoMeta({
             background: #F6F6F6;
             margin-top: 30px;
             width: 300px;
+            display: flex;
+            flex-direction: column;
 
 
 
             img {
                 width: 100%;
                 height: 275px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
             }
 
-            .popular__body {
-                padding: 10px 15px 10px;
+            h1 {
+                padding: 10px 15px 0;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%;
+                font-family: var(--mon);
+                color: #000;
+                margin-bottom: 5px;
+            }
 
-                h1 {
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 130%;
-                    font-family: var(--mon);
-                    color: #000;
-                    margin-bottom: 5px;
+            h2,
+            p {
+                padding: 0 15px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                color: #000;
+                font-family: var(--mon);
+                margin-bottom: 10px;
+
+            }
+
+            p {
+                margin-top: auto;
+                margin-bottom: 15px;
+            }
+
+
+            a {
+                margin-bottom: 10px;
+                background: #000;
+                text-decoration: none;
+
+                &:hover {
+                    background: #373737;
                 }
-
-                h2,
-                p {
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 130%;
-                    color: #000;
-                    font-family: var(--mon);
-                    margin-bottom: 10px;
-                }
-
-                p {
-                    margin-bottom: 15px;
-                }
-
-                a {
-                    background: #000;
-                    text-decoration: none;
-
-                    &:hover {
-                        background: #373737;
-                    }
-                }
-
             }
         }
 
@@ -907,60 +900,56 @@ useSeoMeta({
             background: #F6F6F6;
             margin-top: 30px;
             width: 300px;
+            display: flex;
+            flex-direction: column;
 
 
 
             img {
                 width: 100%;
                 height: 275px;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
             }
 
-            .popular__body {
-                padding: 10px 15px 10px;
+            h1 {
+                padding: 10px 15px 0;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 130%;
+                font-family: var(--mon);
+                color: #000;
+                margin-bottom: 5px;
+            }
 
-                h1 {
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 130%;
-                    font-family: var(--mon);
-                    color: #000;
-                    margin-bottom: 10px;
+            h2,
+            p {
+                padding: 0 15px;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                color: #000;
+                font-family: var(--mon);
+                margin-bottom: 10px;
+
+            }
+
+            p {
+                margin-top: auto;
+                margin-bottom: 15px;
+            }
+
+
+            a {
+                margin-bottom: 10px;
+                background: #000;
+                text-decoration: none;
+
+                &:hover {
+                    background: #373737;
                 }
-
-                h2 {
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 130%;
-                    font-family: var(--mon);
-                    color: #000;
-                    margin-bottom: 10px;
-                }
-
-                p {
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 130%;
-                    color: #000;
-                    font-family: var(--mon);
-                    margin-bottom: 15px;
-                }
-
-                p {
-                    margin-bottom: 15px;
-                }
-
-                a {
-                    background: #000;
-                    text-decoration: none;
-
-                    &:hover {
-                        background: #373737;
-                    }
-                }
-
             }
         }
 

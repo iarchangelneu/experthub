@@ -5,9 +5,10 @@
 
                 <div class="headermen">
                     <div class="trepik">
-                        <img src="@/assets/img/cart.svg" alt="" loading="lazy" @click="cartOpen = !cartOpen"
-                            style="cursor: pointer;">
-                        <NuxtLink to="/refill">
+                        <NuxtLink to="/cart">
+                            <img src="@/assets/img/cart.svg" alt="" loading="lazy" style="cursor: pointer;">
+                        </NuxtLink>
+                        <NuxtLink to="/withdrawal">
                             <img src="@/assets/img/cash.svg" alt="" loading="lazy">
                         </NuxtLink>
                     </div>
@@ -15,12 +16,12 @@
                         <img src="@/assets/img/headerlogo.svg" alt="" loading="lazy">
                     </NuxtLink>
                     <div class="trepik">
-                        <NuxtLink to="/seller-account">
+                        <NuxtLink :to="this.accountUrl">
                             <img src="@/assets/img/acc.svg" alt="" loading="lazy">
                         </NuxtLink>
                         <div class="burg">
                             <input id="menu__toggle" class="d-none" type="checkbox" />
-                            <label class="menu__btn mt-2" for="menu__toggle" @click="menuOpen = !menuOpen">
+                            <label class="menu__btn" for="menu__toggle" @click="menuOpen = !menuOpen">
                                 <span></span>
                             </label>
                         </div>
@@ -31,36 +32,83 @@
             <div class="headermenu" :class="{ open: menuOpen }">
                 <div class="menu__body">
                     <div>
-                        <NuxtLink to="/catalog">Каталог</NuxtLink>
-                        <a href="/#sales">Акции и скидки</a>
-                        <a href="/#popular">Популярное</a>
+                        <NuxtLink to="/experts">Эксперты</NuxtLink>
+                        <NuxtLink to="/products">Услуги</NuxtLink>
                         <NuxtLink to="/about">О платформе</NuxtLink>
-                        <NuxtLink to="/for-seller">Для продавца</NuxtLink>
+                        <NuxtLink to="/for-expert">Для Эксперта</NuxtLink>
                     </div>
                     <div>
                         <NuxtLink to="/terms">Пользовательское соглашение</NuxtLink>
                         <NuxtLink to="/polytics">Политика конфиденциальности</NuxtLink>
                     </div>
-                    <NuxtLink to="/login" class="reg">Вход/Регистрация</NuxtLink>
+                    <NuxtLink to="/login" class="reg" v-if="accountType == ''">Вход/Регистрация</NuxtLink>
+                    <span v-if="userBalance !== null">{{ userBalance == null ? '0 ₸' : userBalance.toLocaleString()
+                        + ' ₸' }}</span>
                 </div>
             </div>
         </div>
     </header>
 </template>
 <script>
-//import global from '~/mixins/global';
+import global from '~/mixins/global';
 import axios from 'axios'
 export default {
-    //   mixins: [global],
+    mixins: [global],
     data() {
         return {
             menuOpen: false,
             cartOpen: false,
             hideHeaderOnPages: ['login', 'register'],
-            pathUrl: 'https://studynow.kz',
+            pathUrl: 'https://experthub.kz',
+            userBalance: null,
             accountType: '',
         }
     },
+    methods: {
+        getBuyer() {
+            const token = this.getAuthorizationCookie()
+            const path = `${this.pathUrl}/api/buyer/buyer-lk`;
+            axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+            axios
+                .get(path)
+                .then(response => {
+                    this.userBalance = response.data.balance
+
+                })
+                .catch(error => console.log(error));
+        },
+        getSeller() {
+            const token = this.getAuthorizationCookie()
+            const path = `${this.pathUrl}/api/seller/seller-lk`;
+            axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+            axios
+                .get(path)
+                .then(response => {
+                    this.userBalance = response.data.balance
+
+                })
+                .catch(error => console.log(error));
+        },
+
+    },
+    mounted() {
+        const accType = localStorage.getItem('accountType')
+        if (accType == 'buyer-account') {
+            this.getBuyer()
+            this.accountType = 'buyer'
+            setInterval(() => {
+                this.cartLength = localStorage.getItem('cartLength')
+            }, 1);
+        }
+        else if (accType == 'seller-account') {
+            this.getSeller()
+            this.accountType = 'seller'
+        }
+        else {
+            console.log('not authorized')
+        }
+
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -94,6 +142,8 @@ export default {
         width: 100%;
         padding: 20px;
     }
+
+
 
     .cart__body {
         margin-top: 75px;
@@ -249,7 +299,6 @@ header {
 
             .trepik {
                 display: flex;
-                align-items: center;
                 gap: 40px;
             }
         }
@@ -268,6 +317,13 @@ header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
+
+                span {
+                    font-family: var(--mon);
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
 
                 @media (max-width: 1024px) {
                     flex-direction: column;
@@ -297,6 +353,8 @@ header {
                             font-size: 16px;
                         }
                     }
+
+
                 }
 
                 .reg {
