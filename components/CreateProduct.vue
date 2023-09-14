@@ -55,7 +55,7 @@
                 <div>
                     <label for="tabs">Особенности услуги (До 6)</label>
                     <div class="custom-textarea">
-                        <textarea class="features-list" сols="30" rows="10" ref="featuresList" v-model="courseFeaturesText"
+                        <textarea class="features-list" сols="30" rows="6" ref="featuresList" v-model="courseFeaturesText"
                             @keydown="handleKeyDown"></textarea>
                     </div>
                 </div>
