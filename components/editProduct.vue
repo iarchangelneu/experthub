@@ -155,7 +155,7 @@ export default {
             formData.append('description', this.description);
             formData.append('short_description', this.shortDesc);
             formData.append('key_features', this.courseFeaturesText);
-
+            formData.append('show', true);
 
 
             try {
