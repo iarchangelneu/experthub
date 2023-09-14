@@ -5,7 +5,7 @@
 
                 <div class="headermen">
                     <div class="trepik">
-                        <NuxtLink to="/cart">
+                        <NuxtLink to="/cart" v-if="accountType == 'buyer'">
                             <img src="@/assets/img/cart.svg" alt="" loading="lazy" style="cursor: pointer;">
                         </NuxtLink>
                         <NuxtLink to="/withdrawal">
@@ -21,7 +21,7 @@
                         </NuxtLink>
                         <div class="burg">
                             <input id="menu__toggle" class="d-none" type="checkbox" />
-                            <label class="menu__btn" for="menu__toggle" @click="menuOpen = !menuOpen">
+                            <label class="menu__btn mt-2" for="menu__toggle" @click="menuOpen = !menuOpen">
                                 <span></span>
                             </label>
                         </div>
@@ -394,7 +394,7 @@ header {
 }
 
 .menu__btn {
-    display: flex;
+    display: flex !important;
     /* используем flex для центрирования содержимого */
     align-items: center;
     /* центрируем содержимое кнопки */

@@ -71,13 +71,13 @@ export default {
                 })
                 .then(response => {
                     if (response.status == 201) {
-                        this.$refs.cartBtn.InnerHTML = 'Товар успешно добавлен в корзину!'
+                        this.$refs.cartBtn.innerHTML = 'Добавлен в корзину'
                         this.$refs.cartBtn.disabled = true
                         this.$refs.cartBtn.classList.add('disabled')
                         this.getCart()
                     }
                     else {
-                        this.$refs.cartBtn.InnerHTML = 'Произошла ошибка, попробуйте еще раз'
+                        this.$refs.cartBtn.innerHTML = 'Произошла ошибка, попробуйте еще раз'
                         this.$refs.cartBtn.disabled = false
 
                     }

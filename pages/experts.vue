@@ -57,8 +57,8 @@
             <div class="catalog__item" v-for="item in sellers.results" :key="item.id">
                 <img :src="item.photo" alt="">
 
-                <h1>{{}}</h1>
-                <h2>{{ item.user.first_name }}</h2>
+                <h1>{{ item.user.first_name }}</h1>
+
                 <p>{{ truncatedDescription(item.description) }}</p>
                 <div class="text-center">
                     <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
