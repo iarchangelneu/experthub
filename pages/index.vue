@@ -743,6 +743,7 @@ useSeoMeta({
                 height: 275px;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
+                object-fit: cover;
             }
 
             h1 {
@@ -910,6 +911,7 @@ useSeoMeta({
                 height: 275px;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
+                object-fit: cover;
             }
 
             h1 {

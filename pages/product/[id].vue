@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="description">
-                    <p>Представление бухгалтерской квартальной отчетности является обязанностью всех организаций</p>
+                    <p>{{ product.short_description }}</p>
 
                     <div class="price">
                         <h2>{{ product.price.toLocaleString() + ' ₸' }}</h2>
@@ -214,6 +214,7 @@ useSeoMeta({
                 border-radius: 10px;
                 width: 16.667vw;
                 height: 14.323vw;
+                object-fit: cover;
             }
 
             .dot-list {

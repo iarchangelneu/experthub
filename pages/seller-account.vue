@@ -23,7 +23,7 @@
 
             <div class="products">
                 <div class="product__item" v-for="item in products" :key="item.id">
-                    <img src="@/assets/img/usluga.png" alt="">
+                    <img :src="pathUrl + '/api' + item.main_image" alt="">
 
                     <div class="product__info">
                         <div class="names">
