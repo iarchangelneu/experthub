@@ -152,7 +152,12 @@ export default {
                     formData.append('description', this.description);
                     formData.append('key_features', this.courseFeaturesText);
                     formData.append('short_description', this.shortDesc);
-                    formData.append('main_image', this.selectedFile);
+                    if (this.selectedFile == null) {
+                        formData.append('main_image', '');
+                    }
+                    else {
+                        formData.append('main_image', this.selectedFile);
+                    }
                     this.$refs.createProduct.disabled = true
                     this.$refs.createProduct.innerHTML = 'СОЗДАЕМ ЗАКАЗ'
 

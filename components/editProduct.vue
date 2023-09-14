@@ -151,7 +151,12 @@ export default {
             formData.append('category', this.selectedCategory);
             formData.append('price', this.price);
             formData.append('discount', this.discount);
-            formData.append('main_image', this.selectedFile);
+            if (this.selectedFile == null) {
+                formData.append('main_image', '');
+            }
+            else {
+                formData.append('main_image', this.selectedFile);
+            }
             formData.append('description', this.description);
             formData.append('short_description', this.shortDesc);
             formData.append('key_features', this.courseFeaturesText);
