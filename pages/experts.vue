@@ -188,11 +188,13 @@ export default {
 }
 </script>
 <script setup>
+const isMobile = window.innerWidth < 1024;
 useSeoMeta({
     title: 'Эксперты | Experthub',
     ogTitle: 'Эксперты | Experthub',
     description: 'Эксперты | Experthub',
     ogDescription: 'Эксперты | Experthub',
+    viewport: isMobile ? 'width=device-width, initial-scale=1.0' : 'width=1920',
 })
 </script>
 <style lang="scss" scoped>

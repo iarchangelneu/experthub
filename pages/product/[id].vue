@@ -33,7 +33,7 @@
                 <div class="author">
                     <span>Автор: <NuxtLink :to="'/expert/' + product.seller.id"
                             style="text-decoration: underline !important; color: #fff;">{{
-                                seller.first_name }}</NuxtLink></span>
+                                                        seller.first_name }}</NuxtLink></span>
                     <span>Рейтинг: {{ rating }} <img src="@/assets/img/star.svg" alt=""></span>
                     <span>Количество услуг на сайте: {{ count }}</span>
                 </div>

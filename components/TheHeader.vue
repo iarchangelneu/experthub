@@ -43,7 +43,7 @@
                     </div>
                     <NuxtLink to="/login" class="reg" v-if="accountType == ''">Вход/Регистрация</NuxtLink>
                     <span v-if="userBalance !== null">{{ userBalance == null ? '0 ₸' : userBalance.toLocaleString()
-                        + ' ₸' }}</span>
+                                            + ' ₸' }}</span>
                 </div>
             </div>
         </div>

@@ -16,8 +16,8 @@
                         <label for="select">Выберите категорию</label>
                         <select name="select" id="select" v-model="selectedCategory" ref="select">
                             <option v-for="(category, index) in categories" :key="index" :value="category.id">{{
-                                category.name
-                            }}</option>
+                                                            category.name
+                                                            }}</option>
                         </select>
                     </div>
                     <span v-if="selectedCategory !== null">

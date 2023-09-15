@@ -21,7 +21,8 @@
             <NuxtLink to="/">Посмотреть все</NuxtLink>
 
             <div class="popular__slider">
-                <swiper :slides-per-view="5" :space-between="30" :navigation="navigation" :modules="modules">
+                <swiper :slides-per-view="5" :space-between="30" :navigation="navigation" :breakpoints="breakpoints"
+                    :modules="modules">
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/pop1.png" alt="">
@@ -152,7 +153,8 @@
             <NuxtLink to="/">Посмотреть все</NuxtLink>
 
             <div class="popular__slider">
-                <swiper :slides-per-view="5" :space-between="30" :navigation="navigation2" :modules="modules">
+                <swiper :slides-per-view="5" :space-between="30" :breakpoints="breakpoints" :navigation="navigation2"
+                    :modules="modules">
                     <swiper-slide>
                         <div class="popular__item">
                             <img src="@/assets/img/usl1.png" alt="">
@@ -277,8 +279,8 @@
             </div>
 
             <div class="reviews__slider">
-                <swiper :slides-per-view="3" :space-between="43" :navigation="navigation3" :modules="modules"
-                    @swiper="onSwiper" ref="mySwiper">
+                <swiper :slides-per-view="3" :space-between="43" :breakpoints="breakpoints2" :navigation="navigation3"
+                    :modules="modules" @swiper="onSwiper" ref="mySwiper">
                     <swiper-slide v-for="(slide, index) in reviews" :key="index"
                         :class="{ 'scale-down': index === thirdSlideIndex }">
                         <div class="popular__item">
@@ -321,6 +323,36 @@ export default {
             inMove: false,
             inMoveDelay: 400,
             activeSection: 0,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1300: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+                1600: {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                }
+            },
+            breakpoints2: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
             reviews: [
                 {
                     name: 'Прогнозирование успешных стратегий',
@@ -467,11 +499,15 @@ export default {
         this.calculateSectionOffsets();
         this.thirdSlideIndex = 2;
 
-        window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
-        window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+        const screenWidth = window.innerWidth;
 
-        window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
-        window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+        if (screenWidth >= 1025) {
+            window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
+            window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+
+            window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
+            window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+        }
     },
     destroyed() {
         window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
@@ -483,11 +519,14 @@ export default {
 };
 </script>
 <script setup>
+const isMobile = window.innerWidth < 1024;
+
 useSeoMeta({
     title: 'Главная | Experthub',
     ogTitle: 'Главная | Experthub',
     description: 'Главная | Experthub',
     ogDescription: 'Главная | Experthub',
+    viewport: isMobile ? 'width=device-width, initial-scale=1.0' : 'width=1920',
 })
 </script>
 <style lang="scss" scoped>
@@ -510,8 +549,21 @@ useSeoMeta({
     flex-direction: column;
     width: 100%;
 
+    @media (max-width: 1024px) {
+        height: auto;
+    }
+
     .reviews {
         padding: 0 100px;
+
+        @media (max-width: 1600px) {
+            padding: 0 50px;
+        }
+
+        @media (max-width: 1024px) {
+            padding: 0 20px;
+        }
+
 
         .header {
             width: 100%;
@@ -526,6 +578,16 @@ useSeoMeta({
                 line-height: 130%;
                 color: #fff;
                 font-family: var(--mon);
+
+                @media (max-width: 1024px) {
+                    font-size: 24px;
+                }
+            }
+
+            img {
+                @media (max-width: 1024px) {
+                    display: none;
+                }
             }
 
         }
@@ -534,11 +596,22 @@ useSeoMeta({
             position: relative;
             z-index: 10;
 
+            .text-right {
+                @media (max-width: 1024px) {
+                    text-align: center !important;
+                }
+            }
+
             .review__nav {
                 position: absolute;
                 margin-top: -20px;
                 right: 0;
                 z-index: 10;
+
+                @media (max-width: 1024px) {
+                    position: relative;
+                    margin-top: 20px;
+                }
 
                 img {
                     z-index: 10;
@@ -559,6 +632,10 @@ useSeoMeta({
                     font-family: var(--mon);
                     color: #000;
                     margin-bottom: 15px;
+
+                    @media (max-width: 1024px) {
+                        font-size: 18px;
+                    }
                 }
 
                 p {
@@ -569,6 +646,10 @@ useSeoMeta({
                     font-family: var(--mon);
                     color: #000;
                     margin-bottom: 5px;
+
+                    @media (max-width: 1024px) {
+                        font-size: 14px;
+                    }
                 }
 
                 h2 {
@@ -578,6 +659,10 @@ useSeoMeta({
                     line-height: 130%;
                     font-family: var(--mon);
                     color: #000;
+
+                    @media (max-width: 1024px) {
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -590,23 +675,45 @@ useSeoMeta({
     align-items: flex-start;
     flex-direction: column;
 
+    @media (max-width: 1024px) {
+        height: auto;
+        margin-top: 80px;
+    }
+
     .about {
         padding: 0 100px 0 28px;
         display: flex;
         align-items: center;
         gap: 76px;
 
+        @media (max-width: 1024px) {
+            padding: 30px 20px;
+
+        }
+
         .text {
             .syk {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
+
+                img {
+                    &:last-child {
+                        @media (max-width: 1024px) {
+                            display: none;
+                        }
+                    }
+                }
             }
 
             .header {
                 display: flex;
                 gap: 30px;
                 align-items: center;
+
+                @media (max-width: 1024px) {
+                    gap: 14px;
+                }
 
                 .activeSpan {
                     color: #fff !important;
@@ -621,6 +728,11 @@ useSeoMeta({
                     color: #737373;
                     transition: all .3s ease;
                     cursor: pointer;
+
+                    @media (max-width: 1024px) {
+                        white-space: nowrap;
+                    }
+
 
                     &:hover {
                         color: #fff;
@@ -640,6 +752,14 @@ useSeoMeta({
                     color: #fff;
                     margin-bottom: 30px;
                     max-width: 933px;
+
+                    @media (max-width: 1600px) {
+                        font-size: 25px;
+                    }
+
+                    @media (max-width: 1024px) {
+                        font-size: 16px;
+                    }
                 }
 
                 a {
@@ -668,9 +788,17 @@ useSeoMeta({
         .roll {
             position: relative;
 
+            @media (max-width: 1024px) {
+                display: none;
+            }
+
             .roller {
                 transform: rotate(0deg);
                 animation: rotateAnimation 15s linear infinite;
+
+                @media (max-width: 1600px) {
+                    display: none;
+                }
             }
 
             @keyframes rotateAnimation {
@@ -687,6 +815,11 @@ useSeoMeta({
                 position: absolute;
                 top: 5%;
                 left: 5%;
+
+                @media (max-width: 1600px) {
+                    position: relative;
+                    max-width: 100%;
+                }
             }
         }
     }
@@ -700,6 +833,14 @@ useSeoMeta({
         width: 100%;
 
         padding: 129px 200px 124px 100px;
+
+        @media (max-width: 1600px) {
+            padding: 129px 100px 124px 50px;
+        }
+
+        @media (max-width: 1024px) {
+            padding: 30px 20px;
+        }
 
         .popular__slider {
             position: relative;
@@ -732,7 +873,7 @@ useSeoMeta({
             border-radius: 10px;
             background: #F6F6F6;
             margin-top: 30px;
-            width: 300px;
+            width: 100%;
             display: flex;
             flex-direction: column;
 
@@ -795,6 +936,10 @@ useSeoMeta({
             font-family: var(--mon);
             color: #fff;
             margin-bottom: 20px;
+
+            @media (max-width: 1024px) {
+                font-size: 24px;
+            }
         }
 
         p {
@@ -839,6 +984,15 @@ useSeoMeta({
     background: url('@/assets/img/mainsl.png') no-repeat;
     background-size: 100vw 100vh;
 
+
+    @media (max-width: 500px) {
+        background-size: 100% !important;
+        background: url('@/assets/img/mainslmob.svg') no-repeat;
+
+        height: auto;
+        min-height: 671px;
+    }
+
     div {
         margin-top: 200px;
         display: flex;
@@ -846,6 +1000,10 @@ useSeoMeta({
         flex-direction: column;
         height: 100%;
         justify-content: space-around;
+
+        @media (max-width: 500px) {
+            display: none;
+        }
     }
 
     h2 {
@@ -856,16 +1014,34 @@ useSeoMeta({
         font-family: var(--mon);
         color: #fff;
         margin-top: 450px;
+
+        @media (max-width: 500px) {
+            display: none;
+        }
     }
 }
 
 
 .purple {
+
+    @media (max-width: 1024px) {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
     .popular {
         text-align: left;
         width: 100%;
 
         padding: 129px 200px 124px 100px;
+
+        @media (max-width: 1600px) {
+            padding: 129px 100px 124px 50px;
+        }
+
+        @media (max-width: 1024px) {
+            padding: 30px 20px;
+        }
 
         .popular__slider {
             position: relative;
@@ -900,7 +1076,7 @@ useSeoMeta({
             border-radius: 10px;
             background: #F6F6F6;
             margin-top: 30px;
-            width: 300px;
+            width: 100%;
             display: flex;
             flex-direction: column;
 
@@ -963,6 +1139,10 @@ useSeoMeta({
             font-family: var(--mon);
             color: #fff;
             margin-bottom: 20px;
+
+            @media (max-width: 1024px) {
+                font-size: 24px;
+            }
         }
 
         p {
@@ -1005,6 +1185,11 @@ useSeoMeta({
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
 }
 
 .sections-menu .menu-point {

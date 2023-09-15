@@ -44,7 +44,7 @@ export default {
     },
     mounted() {
         const url = window.location.href;
-        const match = url.match(/order_pay_experthub_(\d+)/);
+        const match = url.match(/order_pay_main_experthub_(\d+)/);
 
         if (match) {
             this.extractedValue = match[0];

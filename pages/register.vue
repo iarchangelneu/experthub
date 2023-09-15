@@ -21,7 +21,7 @@
                     <select name="select" id="select" v-model="selectedCategory" ref="select" v-if="userType == 'seller'">
                         <option value="0" disabled selected>Специализация</option>
                         <option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.name
-                        }}
+                                                    }}
                         </option>
 
                     </select>
