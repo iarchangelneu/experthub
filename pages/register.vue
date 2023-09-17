@@ -202,6 +202,19 @@ export default {
             return category ? category.name : "";
         },
 
+    },
+    mounted() {
+        const accType = localStorage.getItem('accountType')
+        if (accType == 'buyer-account') {
+            window.location.href = '/buyer-account'
+        }
+        else if (accType == 'seller-account') {
+            window.location.href = '/seller-account'
+        }
+        else {
+            console.log('not authorized')
+        }
+
     }
 }
 </script>
