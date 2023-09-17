@@ -24,7 +24,8 @@
                         <div class="names">
                             <h1>{{ item.products.name }}</h1>
                             <span>Дата покупки: {{ formatDate(item.date) }} </span>
-                            <span>Автор: <span style="text-decoration: underline;">{{ item.seller.user.first_name }}</span>
+                            <span>Автор: <NuxtLink :to="'/expert/' + item.seller.id" style="text-decoration: underline;">{{
+                                item.seller.user.first_name }}</NuxtLink>
                             </span>
                         </div>
                         <div class="buttons">
@@ -443,8 +444,13 @@ useSeoMeta({
                         }
                     }
 
-                    button,
                     a {
+                        text-decoration: underline !important;
+                        font-family: var(--mon);
+                        color: #fff;
+                    }
+
+                    button {
                         background: #0072EE;
                         border-radius: 10px;
                         border: 0;
@@ -467,13 +473,13 @@ useSeoMeta({
                 }
 
                 img {
-                    width: 18.75vw;
+                    min-width: 18.75vw;
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
 
                     @media (max-width: 1024px) {
-                        width: 100%;
+                        min-width: 100%;
                         height: 240px;
                     }
                 }

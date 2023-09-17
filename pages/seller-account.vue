@@ -715,13 +715,13 @@ useSeoMeta({
                 }
 
                 img {
-                    width: 18.75vw;
+                    min-width: 18.75vw;
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
 
                     @media (max-width: 1024px) {
-                        width: 100%;
+                        min-width: 100%;
                         height: 240px;
                     }
                 }
@@ -835,13 +835,13 @@ useSeoMeta({
                 }
 
                 img {
-                    width: 18.75vw;
+                    min-width: 18.75vw;
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
 
                     @media (max-width: 1024px) {
-                        width: 100%;
+                        min-width: 100%;
                         height: 240px;
                     }
                 }

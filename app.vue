@@ -1,11 +1,36 @@
 <template>
-  <TheHeader></TheHeader>
-  <div>
+  <div class="fullpages" v-if="!hideHeaderOnPages.includes($route.name)">
+    <TheHeader></TheHeader>
+
     <NuxtPage />
+
+    <TheFooter></TheFooter>
   </div>
-  <TheFooter></TheFooter>
+  <div v-else>
+    <TheHeader></TheHeader>
+
+    <NuxtPage />
+
+    <TheFooter></TheFooter>
+  </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      hideHeaderOnPages: ['index'],
+    }
+  }
+}
+</script>
 <style>
+.fullpages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 .custom-checkbox p {
   font-family: var(--mon);
   font-size: 20px;

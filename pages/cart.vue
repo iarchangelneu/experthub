@@ -242,11 +242,11 @@ useSeoMeta({
 
                 .img {
                     border-radius: 10px;
-                    width: 18.75vw;
+                    min-width: 18.75vw;
                     height: 13.802vw;
 
                     @media (max-width: 1024px) {
-                        width: 165px;
+                        min-width: 165px;
                         height: 165px;
                     }
                 }

@@ -126,7 +126,7 @@ export default {
                 axios
                     .get(this.sellers.next)
                     .then(response => {
-                        // Добавляем новые продукты к существующим
+                        this.$refs.showmore.innerHTML = 'Показать еще'
                         this.sellers.results.push(...response.data.results);
                         this.sellers.next = response.data.next;
                     })
