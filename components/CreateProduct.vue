@@ -16,8 +16,8 @@
                         <label for="select">Выберите категорию</label>
                         <select name="select" id="select" v-model="selectedCategory" ref="select">
                             <option v-for="(category, index) in categories" :key="index" :value="category.id">{{
-                                                            category.name
-                                                            }}</option>
+                                category.name
+                            }}</option>
                         </select>
                     </div>
                     <span v-if="selectedCategory !== null">
@@ -61,9 +61,11 @@
                 </div>
                 <div>
                     <label for="tabs">Описание услуги</label>
-                    <textarea name="" id="" cols="30" rows="10" v-model="description">
+                    <ClientOnly>
+                        <QuillEditor theme="snow" v-model:content="description" contentType="html" />
+                    </ClientOnly>
 
-                </textarea>
+
                 </div>
             </div>
         </div>
@@ -244,6 +246,10 @@ export default {
 }
 </script>
 <script setup>
+import { QuillEditor } from '@vueup/vue-quill';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import '@vueup/vue-quill/dist/vue-quill.bubble.css';
+
 useSeoMeta({
     title: 'Добавление услуги | Experthub',
     ogTitle: 'Добавление услуги | Experthub',

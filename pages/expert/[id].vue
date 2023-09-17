@@ -146,8 +146,12 @@ useSeoMeta({
                 }
 
                 p {
-                    margin-top: auto;
+
                     margin-bottom: 15px;
+                }
+
+                .text-center {
+                    margin-top: auto;
                 }
 
                 a {

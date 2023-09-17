@@ -23,81 +23,15 @@
             <div class="popular__slider">
                 <swiper :slides-per-view="5" :space-between="30" :navigation="navigation" :breakpoints="breakpoints"
                     :modules="modules">
-                    <swiper-slide>
+                    <swiper-slide v-for="item in experts.results" :key="item.id">
                         <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
+                            <img :src="item.photo" alt="">
 
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
+                            <h1>{{ item.category.category_name }}</h1>
+                            <h2>{{ item.user.first_name }}</h2>
+                            <p>{{ truncatedDescription(item.description, 103) }}</p>
                             <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
-
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
-                            <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
-
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
-                            <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
-
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
-                            <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
-
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
-                            <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/pop1.png" alt="">
-
-                            <h1>Юрист</h1>
-                            <h2>Елена Туманова</h2>
-                            <p>Эксперт обладает глубокими знаниями законодательства и практическим опытом в различных
-                                сферах права</p>
-                            <div class="text-center">
-                                <NuxtLink to="/">Подробнее</NuxtLink>
+                                <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
                             </div>
                         </div>
                     </swiper-slide>
@@ -153,109 +87,18 @@
             <NuxtLink to="/">Посмотреть все</NuxtLink>
 
             <div class="popular__slider">
-                <swiper :slides-per-view="5" :space-between="30" :breakpoints="breakpoints" :navigation="navigation2"
-                    :modules="modules">
-                    <swiper-slide>
+                <swiper :slides-per-view="5" ref="slider" :space-between="30" :breakpoints="breakpoints"
+                    :navigation="navigation2" :modules="modules">
+                    <swiper-slide v-for="item in products" :key="item.id">
                         <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
+                            <img :src="item.main_image" alt="">
 
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
+                            <h1>{{ item.name }}</h1>
+                            <p>{{ truncatedDescription(item.short_description, 50) }}
                             </p>
                             <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций1
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
-                            </div>
-
-                        </div>
-                    </swiper-slide>
-                    <swiper-slide>
-                        <div class="popular__item">
-                            <img src="@/assets/img/usl1.png" alt="">
-
-                            <h1>Квартальные документы</h1>
-                            <p>Представление бухгалтерской квартальной отчетности является обязанностью всех
-                                организаций
-                            </p>
-                            <div class="text-center">
-                                <h2>23 000 ₸</h2>
-                                <NuxtLink to="/">Подробнее</NuxtLink>
+                                <h2>{{ item.price.toLocaleString() + ' ₸' }} </h2>
+                                <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
                             </div>
 
                         </div>
@@ -313,13 +156,17 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import global from '~/mixins/global';
+import axios from 'axios';
 export default {
+    mixins: [global],
     components: {
         Swiper,
         SwiperSlide,
     },
     data() {
         return {
+            pathUrl: 'https://experthub.kz',
             inMove: false,
             inMoveDelay: 400,
             activeSection: 0,
@@ -397,10 +244,42 @@ export default {
             },
             forUser: true,
             thirdSlideIndex: -1,
+            experts: [],
+            products: [],
         };
     },
-
     methods: {
+
+        truncatedDescription(description, length) {
+            const maxLength = length;
+            if (description && description.length > maxLength) {
+                return description.slice(0, maxLength) + '...';
+            } else {
+                return description;
+            }
+        },
+        getPopulars() {
+            const path = `${this.pathUrl}/api/products/popular-product?amount_products=5`;
+            axios
+                .get(path)
+                .then(response => {
+                    this.products = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        getExperts() {
+            let url = `${this.pathUrl}/api/seller/all-seller`;
+            axios
+                .get(url)
+                .then(response => {
+                    this.experts = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
         onSwiper(swiper) {
             swiper.on('slideChange', () => {
                 // Получаем индекс третьего слайда (индексация начинается с 0)
@@ -496,6 +375,8 @@ export default {
         }
     },
     mounted() {
+        this.getPopulars()
+        this.getExperts()
         this.calculateSectionOffsets();
         this.thirdSlideIndex = 2;
 
@@ -922,10 +803,13 @@ useSeoMeta({
             }
 
             p {
-                margin-top: auto;
+
                 margin-bottom: 15px;
             }
 
+            .text-center {
+                margin-top: auto;
+            }
 
             a {
                 margin-bottom: 10px;
@@ -1129,10 +1013,13 @@ useSeoMeta({
             }
 
             p {
-                margin-top: auto;
+
                 margin-bottom: 15px;
             }
 
+            .text-center {
+                margin-top: auto;
+            }
 
             a {
                 margin-bottom: 10px;

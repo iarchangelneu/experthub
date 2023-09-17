@@ -273,8 +273,11 @@ useSeoMeta({
 
             }
 
-            p {
+            .text-center {
                 margin-top: auto;
+            }
+
+            p {
                 margin-bottom: 15px;
             }
 
