@@ -29,7 +29,7 @@
 
                             <h1>{{ item.category.category_name }}</h1>
                             <h2>{{ item.user.first_name }}</h2>
-                            <p>{{ truncatedDescription(item.description, 103) }}</p>
+                            <p>{{ truncatedDescription(item.description, 70) }}</p>
                             <div class="text-center">
                                 <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
                             </div>
@@ -90,14 +90,14 @@
                 <swiper :slides-per-view="5" ref="slider" :space-between="30" :breakpoints="breakpoints"
                     :navigation="navigation2" :modules="modules">
                     <swiper-slide v-for="item in products" :key="item.id">
-                        <div class="popular__item">
+                        <div class="popular__item prodslider">
                             <img :src="item.main_image" alt="">
 
                             <h1>{{ item.name }}</h1>
-                            <p>{{ truncatedDescription(item.short_description, 50) }}
-                            </p>
+                            <!-- <p>{{ truncatedDescription(item.short_description, 50) }}
+                            </p> -->
                             <div class="text-center">
-                                <h2>{{ item.price.toLocaleString() + ' ₸' }} </h2>
+                                <h1>{{ item.price.toLocaleString() + ' ₸' }} </h1>
                                 <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
                             </div>
 
@@ -259,7 +259,7 @@ export default {
             }
         },
         getPopulars() {
-            const path = `${this.pathUrl}/api/products/popular-product?amount_products=5`;
+            const path = `${this.pathUrl}/api/products/popular-product?amount_products=10`;
             axios
                 .get(path)
                 .then(response => {
@@ -411,6 +411,11 @@ useSeoMeta({
 })
 </script>
 <style lang="scss" scoped>
+.prodslider {
+    min-height: 450px;
+    max-height: 450px;
+}
+
 .scale-down {
     transform: scaleY(0.9);
     transform-origin: top center;
