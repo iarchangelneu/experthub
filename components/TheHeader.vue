@@ -5,14 +5,15 @@
 
                 <div class="headermen">
                     <div class="trepik">
-
-                        <NuxtLink to="/cart" v-if="accountType == 'buyer'">
-                            <img src="@/assets/img/cart.svg" alt="" loading="lazy" style="cursor: pointer;">
-                        </NuxtLink>
-
                         <NuxtLink to="/withdrawal">
                             <img src="@/assets/img/cash.svg" alt="" loading="lazy">
                         </NuxtLink>
+                        <NuxtLink to="/cart">
+                            <img src="@/assets/img/cart.svg" v-if="accountType == 'buyer'" alt="" loading="lazy"
+                                style="cursor: pointer;">
+                        </NuxtLink>
+
+
                     </div>
                     <NuxtLink to="/">
                         <img src="@/assets/img/headerlogo.svg" alt="" loading="lazy">
