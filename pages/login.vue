@@ -85,6 +85,10 @@ useSeoMeta({
 .register {
     padding: 60px 0 50px;
 
+    @media (max-width: 1024px) {
+        padding: 50px 20px;
+    }
+
     .logo {
         display: flex;
         justify-content: center;
@@ -96,7 +100,15 @@ useSeoMeta({
         justify-content: center;
         align-items: center;
 
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+
         div {
+            @media (max-width: 1024px) {
+                width: 100%;
+            }
+
             .haveacc {
                 span {
                     font-size: 16px;
@@ -209,6 +221,11 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 margin: 0;
+
+                @media (max-width: 1024px) {
+                    font-size: 40px;
+                    text-align: center;
+                }
             }
         }
     }

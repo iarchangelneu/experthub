@@ -39,11 +39,27 @@ export default {
 footer {
     padding: 0 100px 30px;
 
+    @media (max-width: 1660px) {
+        padding: 0 50px 30px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 0 20px 30px;
+    }
+
     .footer__body {
         margin-top: 42px;
 
+        @media (max-width: 700px) {
+            margin-top: 10px;
+        }
+
         .text-center {
             margin-top: 47px;
+
+            @media (max-width: 700px) {
+                margin-top: 20px;
+            }
 
 
             small {
@@ -60,16 +76,33 @@ footer {
         .footer__flex {
             display: flex;
             justify-content: space-between;
+
+            @media (max-width: 1300px) {
+                flex-direction: column;
+            }
         }
 
         .links {
             display: flex;
             gap: 78px;
 
+            @media (max-width: 1300px) {
+                margin-top: 30px;
+            }
+
+            @media (max-width: 700px) {
+                flex-direction: column;
+                gap: 20px;
+            }
+
             div {
                 display: flex;
                 flex-direction: column;
                 gap: 25px;
+
+                @media (max-width: 700px) {
+                    gap: 20px;
+                }
 
                 a {
                     font-size: 20px;
@@ -78,6 +111,10 @@ footer {
                     line-height: 130%;
                     font-family: var(--mon);
                     color: #fff;
+
+                    @media (max-width: 700px) {
+                        font-size: 16px;
+                    }
                 }
             }
         }

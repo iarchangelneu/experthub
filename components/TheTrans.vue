@@ -92,6 +92,10 @@ useSeoMeta({
 })
 </script>
 <style lang="scss" scoped>
+hr {
+    border-top: 1px solid #fff !important;
+}
+
 .transactions {
     margin-top: 38px;
 

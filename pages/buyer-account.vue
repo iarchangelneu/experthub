@@ -55,7 +55,7 @@
         </div>
 
         <div class="profile" v-if="activeTab == 3">
-            <div>
+            <div class="trep">
                 <div class="inputs">
                     <div>
                         <label for="email">E-mail</label>
@@ -191,15 +191,39 @@ useSeoMeta({
 .account {
     padding: 110px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 110px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 110px 20px 60px;
+    }
+
+    .trep {
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+    }
+
     .profile {
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 150px 0;
 
+        @media (max-width: 1024px) {
+            width: 100%;
+            margin: 30px 0;
+        }
+
         .inputs {
             display: flex;
             gap: 20px;
+
+            @media (max-width: 1024px) {
+                flex-direction: column;
+                width: 100%;
+            }
 
             input,
             label {
@@ -229,6 +253,10 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 width: 23.438vw;
+
+                @media (max-width: 1024px) {
+                    width: 100%;
+                }
             }
         }
 
@@ -351,6 +379,11 @@ useSeoMeta({
                 align-items: flex-start;
                 margin-bottom: 30px;
 
+                @media (max-width: 1024px) {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -360,6 +393,10 @@ useSeoMeta({
                     display: flex;
                     justify-content: space-between;
 
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                    }
+
                     h1 {
                         font-size: 24px;
                         font-style: normal;
@@ -368,12 +405,20 @@ useSeoMeta({
                         font-family: var(--mon);
                         color: #fff;
                         margin: 0;
+
+                        @media (max-width: 1024px) {
+                            font-size: 20px;
+                        }
                     }
 
                     .names {
                         display: flex;
                         flex-direction: column;
                         gap: 30px;
+
+                        @media (max-width: 1024px) {
+                            gap: 10px;
+                        }
                     }
 
                     span {
@@ -383,10 +428,19 @@ useSeoMeta({
                         line-height: 130%;
                         font-family: var(--mon);
                         color: #fff;
+
+                        @media (max-width: 1024px) {
+                            font-size: 16px;
+                        }
                     }
 
                     .buttons {
                         text-align: right;
+
+                        @media (max-width: 1024px) {
+                            text-align: left;
+                            margin-top: 10px;
+                        }
                     }
 
                     button,
@@ -417,6 +471,11 @@ useSeoMeta({
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
+
+                    @media (max-width: 1024px) {
+                        width: 100%;
+                        height: 240px;
+                    }
                 }
             }
         }
@@ -426,6 +485,12 @@ useSeoMeta({
         display: flex;
         justify-content: center;
         gap: 20px;
+
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            gap: 10px 20px;
+        }
 
         div {
             display: flex;
@@ -451,6 +516,11 @@ useSeoMeta({
 
                 transition: all .3s ease;
 
+                @media (max-width: 1024px) {
+                    flex: 1;
+                    padding: 10px 0;
+                }
+
                 &:hover {
                     background: #0072EE;
                     color: #fff;
@@ -468,7 +538,9 @@ useSeoMeta({
         color: #fff;
         margin-bottom: 40px;
 
-
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 }
 </style>

@@ -83,6 +83,14 @@ useSeoMeta({
 .expert {
     padding: 110px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 110px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 110px 20px 60px;
+    }
+
     .expert__products {
 
         .products__list {
@@ -90,15 +98,19 @@ useSeoMeta({
             grid-template-columns: repeat(auto-fill, minmax(318px, 1fr));
             gap: 31.85px;
             grid-auto-flow: dense;
-            gap: 31.85px;
+
+            @media (max-width: 1024px) {
+                gap: 20px;
+            }
 
             .products__item {
                 border-radius: 10px;
                 background: #F6F6F6;
-                margin-top: 30px;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
+
+
 
 
                 img {
@@ -170,6 +182,10 @@ useSeoMeta({
             font-family: var(--mon);
             color: #fff;
             margin: 80px 0 30px;
+
+            @media (max-width: 1024px) {
+                margin: 30px 0 30px;
+            }
         }
     }
 
@@ -177,6 +193,10 @@ useSeoMeta({
         display: flex;
         gap: 30px;
         align-items: flex-start;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
 
         .expert__about {
             .cat {
@@ -214,6 +234,11 @@ useSeoMeta({
                 border-radius: 10px;
                 width: 16.667vw;
                 height: 14.323vw;
+
+                @media (max-width: 1024px) {
+                    width: 165px;
+                    height: 165px;
+                }
             }
         }
     }
@@ -226,6 +251,10 @@ useSeoMeta({
         font-family: var(--mon);
         color: #fff;
         margin: 10px 0 30px;
+
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 
 

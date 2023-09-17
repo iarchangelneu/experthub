@@ -79,12 +79,24 @@ useSeoMeta({
     align-items: center;
     gap: 80px;
 
+    @media (max-width: 1600px) {
+        padding: 150px 50px 113px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 120px 20px 50px;
+    }
+
     .about__left {
         display: flex;
         gap: 20px;
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-end;
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
 
         @keyframes loader {
             0% {
@@ -131,6 +143,11 @@ useSeoMeta({
                 text-transform: uppercase;
                 font-family: var(--jost);
                 color: #fff;
+
+                @media (max-width: 1440px) {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                }
             }
         }
     }
@@ -146,6 +163,10 @@ useSeoMeta({
             font-family: var(--mon);
             color: #fff;
             margin-bottom: 30px;
+
+            @media (max-width: 1024px) {
+                font-size: 24px;
+            }
         }
 
         ol {

@@ -201,6 +201,14 @@ useSeoMeta({
 .catalog {
     padding: 110px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 110px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 110px 20px 60px;
+    }
+
     .pag {
         margin-top: 30px;
 
@@ -230,6 +238,10 @@ useSeoMeta({
         gap: 31.85px;
         grid-auto-flow: dense;
         gap: 31.85px;
+
+        @media (max-width: 1024px) {
+            gap: 20px;
+        }
 
         .catalog__item {
             border-radius: 10px;
@@ -314,6 +326,10 @@ useSeoMeta({
         justify-content: space-between;
         position: relative;
 
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+
         .activeBlock {
             transform: rotate3d(1, 1, 1, 0deg) !important;
         }
@@ -332,6 +348,11 @@ useSeoMeta({
             display: flex;
             flex-direction: column;
             gap: 5px;
+
+            @media (max-width: 1024px) {
+                margin-top: 135px;
+                padding: 15px 10px;
+            }
 
             .activeSpan {
                 background: #0072EE;
@@ -366,6 +387,14 @@ useSeoMeta({
 
             display: flex;
             gap: 30px;
+
+            @media (max-width: 1024px) {
+                flex-direction: column;
+                gap: 0;
+                margin-top: 135px;
+                padding: 20px;
+                width: 100%;
+            }
         }
 
         h2 {
@@ -412,16 +441,25 @@ useSeoMeta({
             display: flex;
             gap: 30px;
 
+            @media (max-width: 1024px) {
+                width: 100%;
+                margin-top: 20px;
+                gap: 20px;
+            }
+
             .activebtn {
                 background: #004692;
 
                 img {
                     transform: rotate(90deg);
                 }
+
+
             }
 
 
             button {
+                flex: 1;
                 border-radius: 10px;
                 padding: 10px 30px;
                 background: #0072EE;
@@ -438,6 +476,12 @@ useSeoMeta({
                 color: #fff;
                 transition: all .3s ease;
 
+                @media (max-width: 1024px) {
+                    padding: 10px 0;
+                    text-align: center;
+                    justify-content: center;
+                }
+
                 img {
                     transition: all .3s ease;
                 }
@@ -452,6 +496,10 @@ useSeoMeta({
         line-height: 130%;
         font-family: var(--mon);
         color: #fff;
+
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 }
 </style>

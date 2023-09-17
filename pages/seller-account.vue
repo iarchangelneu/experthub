@@ -321,6 +321,15 @@ useSeoMeta({
 .account {
     padding: 110px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 110px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 110px 20px 60px;
+    }
+
+
     .accs {
         .buttons {
             display: flex;
@@ -436,8 +445,8 @@ useSeoMeta({
                     object-fit: cover;
 
                     @media (max-width: 1024px) {
-                        width: 150px;
-                        height: 150px;
+                        width: 100%;
+                        height: 300px;
                     }
                 }
 
@@ -613,6 +622,11 @@ useSeoMeta({
                 align-items: flex-start;
                 margin-bottom: 30px;
 
+                @media (max-width: 1024px) {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -622,6 +636,10 @@ useSeoMeta({
                     display: flex;
                     justify-content: space-between;
 
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                    }
+
                     h1 {
                         font-size: 24px;
                         font-style: normal;
@@ -629,6 +647,21 @@ useSeoMeta({
                         line-height: 130%;
                         font-family: var(--mon);
                         color: #fff;
+                        margin: 0;
+
+                        @media (max-width: 1024px) {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .names {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px;
+
+                        @media (max-width: 1024px) {
+                            gap: 10px;
+                        }
                     }
 
                     span {
@@ -638,10 +671,24 @@ useSeoMeta({
                         line-height: 130%;
                         font-family: var(--mon);
                         color: #fff;
+
+                        @media (max-width: 1024px) {
+                            font-size: 16px;
+                        }
                     }
 
                     .buttons {
                         text-align: right;
+
+                        @media (max-width: 1024px) {
+                            text-align: left;
+                            margin-top: 10px;
+                        }
+
+                        .btns {
+                            display: flex;
+                            gap: 10px;
+                        }
                     }
 
                     button,
@@ -650,6 +697,7 @@ useSeoMeta({
                         border-radius: 10px;
                         border: 0;
                         padding: 10px 20px;
+                        margin-top: 30px;
 
                         font-size: 16px;
                         font-style: normal;
@@ -664,10 +712,6 @@ useSeoMeta({
                             background: #004692;
                         }
                     }
-
-                    button {
-                        margin-right: 30px;
-                    }
                 }
 
                 img {
@@ -675,6 +719,11 @@ useSeoMeta({
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
+
+                    @media (max-width: 1024px) {
+                        width: 100%;
+                        height: 240px;
+                    }
                 }
             }
         }
@@ -693,6 +742,11 @@ useSeoMeta({
                 align-items: flex-start;
                 margin-bottom: 30px;
 
+                @media (max-width: 1024px) {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -702,6 +756,10 @@ useSeoMeta({
                     display: flex;
                     justify-content: space-between;
 
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                    }
+
                     h1 {
                         font-size: 24px;
                         font-style: normal;
@@ -709,10 +767,48 @@ useSeoMeta({
                         line-height: 130%;
                         font-family: var(--mon);
                         color: #fff;
+                        margin: 0;
+
+                        @media (max-width: 1024px) {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .names {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px;
+
+                        @media (max-width: 1024px) {
+                            gap: 10px;
+                        }
+                    }
+
+                    span {
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 130%;
+                        font-family: var(--mon);
+                        color: #fff;
+
+                        @media (max-width: 1024px) {
+                            font-size: 16px;
+                        }
                     }
 
                     .buttons {
                         text-align: right;
+
+                        @media (max-width: 1024px) {
+                            text-align: left;
+                            margin-top: 10px;
+                        }
+
+                        .btns {
+                            display: flex;
+                            gap: 10px;
+                        }
                     }
 
                     button,
@@ -721,6 +817,7 @@ useSeoMeta({
                         border-radius: 10px;
                         border: 0;
                         padding: 10px 20px;
+                        margin-top: 30px;
 
                         font-size: 16px;
                         font-style: normal;
@@ -735,10 +832,6 @@ useSeoMeta({
                             background: #004692;
                         }
                     }
-
-                    button {
-                        margin-right: 30px;
-                    }
                 }
 
                 img {
@@ -746,6 +839,11 @@ useSeoMeta({
                     height: 13.802vw;
                     border-radius: 10px;
                     object-fit: cover;
+
+                    @media (max-width: 1024px) {
+                        width: 100%;
+                        height: 240px;
+                    }
                 }
             }
         }
@@ -777,6 +875,12 @@ useSeoMeta({
         justify-content: center;
         gap: 20px;
 
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            gap: 10px 20px;
+        }
+
         div {
             display: flex;
             gap: 20px;
@@ -801,6 +905,11 @@ useSeoMeta({
 
                 transition: all .3s ease;
 
+                @media (max-width: 1024px) {
+                    flex: 1;
+                    padding: 10px 0;
+                }
+
                 &:hover {
                     background: #0072EE;
                     color: #fff;
@@ -818,7 +927,9 @@ useSeoMeta({
         color: #fff;
         margin-bottom: 40px;
 
-
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 }
 </style>

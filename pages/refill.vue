@@ -24,7 +24,8 @@
 
                     </p>
                 </label>
-                <p>2. Введите сумму, на которую Вы хотите пополнить личный счет, и нажмите на кнопку “Пополнить”. Вы будете
+                <p class="sum">2. Введите сумму, на которую Вы хотите пополнить личный счет, и нажмите на кнопку
+                    “Пополнить”. Вы будете
                     переадресованы на сайт платежной системы, где сможете завершить платеж.</p>
 
                 <div class="input">
@@ -116,16 +117,34 @@ useSeoMeta({
 .paypage {
     padding: 120px 100px 78px;
 
+    @media (max-width: 1024px) {
+        padding: 120px 20px 78px;
+    }
+
     .payform {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width: 1024px) {
+            margin-top: 30px;
+        }
 
         .form__body {
             border-radius: 10px;
             background: #000;
             box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.10);
             padding: 40px;
+
+            @media (max-width: 1024px) {
+                padding: 20px;
+            }
+
+            .sum {
+                @media (max-width: 1024px) {
+                    font-size: 12px !important;
+                }
+            }
 
             .type {
                 display: flex;
@@ -153,6 +172,10 @@ useSeoMeta({
                     color: #fff;
                     transition: all .3s ease;
 
+                    @media (max-width: 1024px) {
+                        font-size: 16px;
+                    }
+
                     &:hover {
                         color: #000;
                         background: #fff;
@@ -178,6 +201,10 @@ useSeoMeta({
                 gap: 10px;
                 margin-top: 25px;
 
+                @media (max-width: 1024px) {
+                    justify-content: center;
+                }
+
                 .activeBtn {
                     background: #fff !important;
                     color: #000 !important;
@@ -196,6 +223,10 @@ useSeoMeta({
                     font-family: var(--mon);
                     color: #fff;
                     transition: all .3s ease;
+
+                    @media (max-width: 1024px) {
+                        font-size: 16px;
+                    }
 
                     &:hover {
                         color: #000;
@@ -223,6 +254,10 @@ useSeoMeta({
                     line-height: 130%;
                     font-family: var(--mon);
                     color: #fff;
+
+                    @media (max-width: 1024px) {
+                        max-width: 150px;
+                    }
                 }
 
                 button {
@@ -238,6 +273,11 @@ useSeoMeta({
                     line-height: 130%;
                     font-family: var(--mon);
                     color: #000;
+
+                    @media (max-width: 1024px) {
+                        font-size: 16px;
+                        padding: 10px 0;
+                    }
                 }
             }
 
@@ -249,6 +289,10 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 margin-bottom: 15px;
+
+                @media (max-width: 1024px) {
+                    font-size: 24px;
+                }
             }
 
             p {
@@ -260,11 +304,29 @@ useSeoMeta({
                 color: #fff;
                 margin-bottom: 25px;
                 max-width: 535px;
+                white-space: normal;
+
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
             }
 
             a {
                 color: #fff;
             }
+        }
+    }
+}
+
+.custom-checkbox {
+    @media (max-width: 1024px) {
+        margin-bottom: 10px !important;
+    }
+
+    p {
+        @media (max-width: 1024px) {
+            font-size: 12px !important;
         }
     }
 }

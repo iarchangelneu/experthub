@@ -21,7 +21,7 @@
                     <select name="select" id="select" v-model="selectedCategory" ref="select" v-if="userType == 'seller'">
                         <option value="0" disabled selected>Специализация</option>
                         <option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.name
-                                                    }}
+                        }}
                         </option>
 
                     </select>
@@ -217,14 +217,13 @@ useSeoMeta({
 .register {
     padding: 60px 0 50px;
 
+    @media (max-width: 1024px) {
+        padding: 50px 20px;
+    }
+
     .logo {
         display: flex;
         justify-content: center;
-    }
-
-    small {
-        color: red;
-        font-family: var(--mon);
     }
 
     .register__form {
@@ -233,7 +232,15 @@ useSeoMeta({
         justify-content: center;
         align-items: center;
 
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+
         div {
+            @media (max-width: 1024px) {
+                width: 100%;
+            }
+
             .haveacc {
                 span {
                     font-size: 16px;
@@ -246,7 +253,11 @@ useSeoMeta({
             }
 
             .registerbtn {
-                padding: 0 48.5px;
+                padding: 0 100px;
+
+                @media (max-width: 1024px) {
+                    padding: 0 20px;
+                }
 
                 button {
                     border-radius: 10px;
@@ -277,6 +288,10 @@ useSeoMeta({
                 p {
                     font-size: 16px;
                     font-weight: 400;
+
+                    @media (max-width: 1024px) {
+                        font-size: 14px;
+                    }
                 }
 
                 a {
@@ -346,6 +361,11 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 margin: 0;
+
+                @media (max-width: 1024px) {
+                    font-size: 40px;
+                    text-align: center;
+                }
             }
         }
     }

@@ -33,7 +33,7 @@
                 <div class="author">
                     <span>Автор: <NuxtLink :to="'/expert/' + product.seller.id"
                             style="text-decoration: underline !important; color: #fff;">{{
-                                                        seller.first_name }}</NuxtLink></span>
+                                seller.first_name }}</NuxtLink></span>
                     <span>Рейтинг: {{ rating }} <img src="@/assets/img/star.svg" alt=""></span>
                     <span>Количество услуг на сайте: {{ count }}</span>
                 </div>
@@ -133,12 +133,28 @@ useSeoMeta({
 .product {
     padding: 110px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 110px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 110px 20px 60px;
+    }
+
     .product__info {
         display: flex;
         align-items: flex-start;
 
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+
         .author {
             margin-left: 90px;
+
+            @media (max-width: 1024px) {
+                margin: 30px 0 0;
+            }
 
             span {
                 display: flex;
@@ -161,6 +177,12 @@ useSeoMeta({
         .description {
             margin-left: 30px;
             max-width: 1038px;
+
+
+            @media (max-width: 1024px) {
+                margin: 0;
+            }
+
 
             .price {
                 display: flex;
@@ -217,6 +239,11 @@ useSeoMeta({
                 width: 16.667vw;
                 height: 14.323vw;
                 object-fit: cover;
+
+                @media (max-width: 1024px) {
+                    width: 165px;
+                    height: 165px;
+                }
             }
 
             .dot-list {
@@ -295,6 +322,10 @@ useSeoMeta({
         font-family: var(--mon);
         color: #fff;
         margin: 10px 0 30px;
+
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 }
 </style>

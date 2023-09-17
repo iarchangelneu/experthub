@@ -115,6 +115,14 @@ useSeoMeta({
 
     padding: 130px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 130px 50px 60;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 130px 20px 60px;
+    }
+
     h1 {
         font-size: 40px;
         font-style: normal;
@@ -123,6 +131,10 @@ useSeoMeta({
         font-family: var(--mon);
         color: #fff;
         margin-bottom: 30px;
+
+        @media (max-width: 1024px) {
+            font-size: 24px;
+        }
     }
 
     p,
@@ -132,5 +144,10 @@ useSeoMeta({
         font-style: normal;
         font-family: var(--mon);
         color: #fff;
+
+        @media (max-width: 1024px) {
+            font-size: 14px;
+        }
     }
-}</style>
+}
+</style>

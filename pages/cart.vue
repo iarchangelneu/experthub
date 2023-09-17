@@ -140,9 +140,22 @@ useSeoMeta({
 .cart {
     padding: 120px 100px 60px;
 
+    @media (max-width: 1600px) {
+        padding: 120px 50px 60px;
+    }
+
+    @media (max-width: 1024px) {
+        padding: 120px 20px 60px;
+    }
+
     .cart__body {
         display: flex;
         justify-content: space-around;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            gap: 30px;
+        }
 
         .cart__right {
 
@@ -153,6 +166,11 @@ useSeoMeta({
                 line-height: 130%;
                 font-family: var(--mon);
                 margin-bottom: 30px;
+
+                @media (max-width: 1024px) {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
             }
 
             span {
@@ -164,6 +182,11 @@ useSeoMeta({
                 line-height: 130%;
                 font-family: var(--mon);
                 color: #fff;
+
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
             }
 
             p {
@@ -175,6 +198,11 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 max-width: 485px;
+
+                @media (max-width: 1024px) {
+                    font-size: 12px;
+                    margin-bottom: 20px;
+                }
             }
 
             button {
@@ -190,6 +218,10 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 transition: all .3s ease;
+
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                }
 
                 &:hover {
                     background: #004692;
@@ -212,6 +244,11 @@ useSeoMeta({
                     border-radius: 10px;
                     width: 18.75vw;
                     height: 13.802vw;
+
+                    @media (max-width: 1024px) {
+                        width: 165px;
+                        height: 165px;
+                    }
                 }
 
                 .item__price {
@@ -219,6 +256,10 @@ useSeoMeta({
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+
+                    @media (max-width: 1400px) {
+                        width: 300px;
+                    }
                 }
 
                 div {
@@ -230,6 +271,10 @@ useSeoMeta({
                         font-family: var(--mon);
                         color: #fff;
                         margin-bottom: 20px;
+
+                        @media (max-width: 1024px) {
+                            font-size: 16px;
+                        }
                     }
 
                     h2 {
@@ -240,6 +285,10 @@ useSeoMeta({
                         font-family: var(--mon);
                         color: #fff;
                         margin: 0;
+
+                        @media (max-width: 1024px) {
+                            font-size: 16px;
+                        }
                     }
                 }
             }

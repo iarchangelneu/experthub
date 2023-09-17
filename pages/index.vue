@@ -680,6 +680,10 @@ useSeoMeta({
         margin-top: 80px;
     }
 
+    @media (max-width: 380px) {
+        margin-top: 250px;
+    }
+
     .about {
         padding: 0 100px 0 28px;
         display: flex;
@@ -713,6 +717,8 @@ useSeoMeta({
 
                 @media (max-width: 1024px) {
                     gap: 14px;
+                    justify-content: center;
+                    width: 100%;
                 }
 
                 .activeSpan {
@@ -730,7 +736,7 @@ useSeoMeta({
                     cursor: pointer;
 
                     @media (max-width: 1024px) {
-                        white-space: nowrap;
+                        font-size: 16px;
                     }
 
 
@@ -857,6 +863,10 @@ useSeoMeta({
                 top: 40%;
                 z-index: 10;
                 cursor: pointer;
+
+                @media (max-width: 1024px) {
+                    left: 0;
+                }
             }
 
             .next {
@@ -1059,6 +1069,10 @@ useSeoMeta({
                 top: 40%;
                 z-index: 10;
                 cursor: pointer;
+
+                @media (max-width: 1024px) {
+                    left: 0;
+                }
             }
 
             .next,

@@ -5,9 +5,11 @@
 
                 <div class="headermen">
                     <div class="trepik">
+
                         <NuxtLink to="/cart" v-if="accountType == 'buyer'">
                             <img src="@/assets/img/cart.svg" alt="" loading="lazy" style="cursor: pointer;">
                         </NuxtLink>
+
                         <NuxtLink to="/withdrawal">
                             <img src="@/assets/img/cash.svg" alt="" loading="lazy">
                         </NuxtLink>
@@ -43,7 +45,7 @@
                     </div>
                     <NuxtLink to="/login" class="reg" v-if="accountType == ''">Вход/Регистрация</NuxtLink>
                     <span v-if="userBalance !== null">{{ userBalance == null ? '0 ₸' : userBalance.toLocaleString()
-                                            + ' ₸' }}</span>
+                        + ' ₸' }}</span>
                 </div>
             </div>
         </div>
@@ -300,6 +302,10 @@ header {
             .trepik {
                 display: flex;
                 gap: 40px;
+
+                @media (max-width: 1024px) {
+                    gap: 20px;
+                }
             }
         }
 
