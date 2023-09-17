@@ -70,6 +70,10 @@ useSeoMeta({
     align-items: center;
     justify-content: center;
 
+    @media (max-width: 1024px) {
+        margin: 120px 0 50px;
+    }
+
     div {
         .text {
             display: flex;
@@ -84,6 +88,10 @@ useSeoMeta({
                 font-family: var(--mon);
                 color: #fff;
                 margin: 0;
+
+                @media (max-width: 1024px) {
+                    font-size: 16px;
+                }
             }
         }
 
@@ -102,6 +110,10 @@ useSeoMeta({
                 line-height: 130%;
                 font-family: var(--mon);
                 color: #fff;
+
+                @media (max-width: 1024px) {
+                    margin-top: 40px;
+                }
 
                 transition: all .3s ease;
 
