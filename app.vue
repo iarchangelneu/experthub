@@ -1,12 +1,5 @@
 <template>
-  <div class="fullpages" v-if="!hideHeaderOnPages.includes($route.name)">
-    <TheHeader></TheHeader>
-
-    <NuxtPage />
-
-    <TheFooter></TheFooter>
-  </div>
-  <div v-else>
+  <div :class="{ fullpages: !hideHeaderOnPages.includes($route.name) }">
     <TheHeader></TheHeader>
 
     <NuxtPage />
