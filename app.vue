@@ -113,4 +113,14 @@ export default {
 .ql-editor h6 {
   color: #fff !important;
 }
+
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  width: 15px !important;
+  height: 15px !important;
+  border: 2px solid #fff;
+}
 </style>

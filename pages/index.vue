@@ -1,155 +1,329 @@
 <template>
-    <div class="sections-menu">
-        <span class="menu-point" :class="{ active: activeSection == index }" @click="scrollToSection(index)"
-            v-for="(offset, index) in offsets" :key="index" :title="'Go to section ' + (index + 1)">
-        </span>
-    </div>
-    <section class="fullpage blue">
+    <div class="page" v-if="isWideScreen">
+        <swiper class="mySwiper" :direction="'vertical'" :pagination="{
+            clickable: true,
+        }" :modules="modulesPage" :mousewheel="{ invert: false }">
+            <swiper-slide>
+                <section class="fullpage blue">
 
-        <div>
-            <h2>Объединяем лучших экспертов для вашего успеха</h2>
-            <img src="@/assets/img/scroll.svg" alt="" style="cursor: pointer;" @click="scrollToSection(1)">
-        </div>
-    </section>
-    <section class="fullpage black">
-        <div class="popular">
-            <h1>Популярные эксперты</h1>
-            <p>Эксперты платформы представляют собой опытных и квалифицированных специалистов в различных областях права.
-                Они обеспечивают клиентов актуальной и профессиональной поддержкой, помогая разрешать вопросы, составлять
-                документы и обеспечивать соблюдение законов, что делает платформу надёжным и удобным источником услуг
-                для различных потребителей.</p>
-            <NuxtLink to="/">Посмотреть все</NuxtLink>
-
-            <div class="popular__slider">
-                <swiper :slides-per-view="5" :space-between="30" :navigation="navigation" :breakpoints="breakpoints"
-                    :modules="modules">
-                    <swiper-slide v-for="item in experts.results" :key="item.id">
-                        <div class="popular__item">
-                            <img :src="item.photo" alt="">
-
-                            <h1>{{ item.category.category_name }}</h1>
-                            <h2>{{ item.user.first_name }}</h2>
-                            <p>{{ truncatedDescription(item.description, 70) }}</p>
-                            <div class="text-center">
-                                <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
-                            </div>
-                        </div>
-                    </swiper-slide>
-
-                </swiper>
-
-                <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
-
-                <img src="@/assets/img/prev.svg" alt="" class="prev">
-                <img src="@/assets/img/next.svg" alt="" class="next">
-
-            </div>
-        </div>
-    </section>
-    <section class="fullpage red">
-        <div class="about">
-            <div class="roll">
-                <img src="@/assets/img/textroll.png" alt="" class="roller">
-                <img src="@/assets/img/nout.png" class="nout" alt="">
-            </div>
-
-            <div class="text">
-                <div class="syk">
-                    <div class="header">
-                        <span :class="{ activeSpan: forUser }" @click="forUser = true">Для пользователя</span>
-                        <img src="@/assets/img/line.svg" alt="">
-                        <span :class="{ activeSpan: !forUser }" @click="forUser = false">Для эксперта</span>
+                    <div>
+                        <h2>Объединяем лучших экспертов для вашего успеха</h2>
+                        <img src="@/assets/img/scroll.svg" alt="" style="cursor: pointer;" @click="scrollToSection(1)">
                     </div>
-                    <img src="@/assets/img/lol.svg" alt="">
-                </div>
-                <div class="body" v-if="forUser">
+                </section>
+            </swiper-slide>
+            <swiper-slide>
+                <section class="fullpage black">
+                    <div class="popular">
+                        <h1>Популярные эксперты</h1>
+                        <p>Эксперты платформы представляют собой опытных и квалифицированных специалистов в различных
+                            областях права.
+                            Они обеспечивают клиентов актуальной и профессиональной поддержкой, помогая разрешать вопросы,
+                            составлять
+                            документы и обеспечивать соблюдение законов, что делает платформу надёжным и удобным источником
+                            услуг
+                            для различных потребителей.</p>
+                        <NuxtLink to="/">Посмотреть все</NuxtLink>
 
-                    <p> На нашей платформе вы найдёте консультантов, готовых работать с вами индивидуально или командами,
-                        в зависимости от ваших потребностей. Мы стремимся обеспечить вас доступом к самым компетентным
-                        и квалифицированным экспертам, чтобы помочь вам достичь успеха и преуспеть в вашем бизнесе.</p>
-                    <NuxtLink to="/">Подробнее о платформе</NuxtLink>
-                </div>
-                <div class="body" v-if="!forUser">
+                        <div class="popular__slider">
+                            <swiper :slides-per-view="5" :space-between="30" :navigation="navigation"
+                                :breakpoints="breakpoints" :modules="modules">
+                                <swiper-slide v-for="item in experts.results" :key="item.id">
+                                    <div class="popular__item">
+                                        <img :src="item.photo" alt="">
 
-                    <p> ExpertHelp - это партнёрство для вас, как для эксперта в своей области. Мы стремимся предоставить
-                        вам средства и возможности для успешной и процветающей практики, обеспечивая вас клиентами
-                        и инструментами для эффективной работы и реализации ваших знаний</p>
-                    <NuxtLink to="/">Подробнее о платформе</NuxtLink>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="fullpage purple">
-        <div class="popular">
-            <h1>Популярные услуги</h1>
-            <p>На нашей платформе предоставляются разнообразные экспертные услуги, чтобы помочь вам и вашему бизнесу достичь
-                успеха, расти и развиваться.</p>
-            <NuxtLink to="/">Посмотреть все</NuxtLink>
+                                        <h1>{{ item.category.category_name }}</h1>
+                                        <h2>{{ item.user.first_name }}</h2>
+                                        <p>{{ truncatedDescription(item.description, 70) }}</p>
+                                        <div class="text-center">
+                                            <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
 
-            <div class="popular__slider">
-                <swiper :slides-per-view="5" ref="slider" :space-between="30" :breakpoints="breakpoints"
-                    :navigation="navigation2" :modules="modules">
-                    <swiper-slide v-for="item in products" :key="item.id">
-                        <div class="popular__item prodslider">
-                            <img :src="item.main_image" alt="">
+                            </swiper>
 
-                            <h1>{{ item.name }}</h1>
+                            <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
 
-                            <div class="text-center">
-                                <h1>{{ item.price.toLocaleString() + ' ₸' }} </h1>
-                                <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
-                            </div>
+                            <img src="@/assets/img/prev.svg" alt="" class="prev">
+                            <img src="@/assets/img/next.svg" alt="" class="next">
 
                         </div>
-                    </swiper-slide>
+                    </div>
+                </section>
+            </swiper-slide>
+            <swiper-slide>
+                <section class="fullpage red">
+                    <div class="about">
+                        <div class="roll">
+                            <img src="@/assets/img/textroll.png" alt="" class="roller">
+                            <img src="@/assets/img/nout.png" class="nout" alt="">
+                        </div>
 
-                </swiper>
+                        <div class="text">
+                            <div class="syk">
+                                <div class="header">
+                                    <span :class="{ activeSpan: forUser }" @click="forUser = true">Для пользователя</span>
+                                    <img src="@/assets/img/line.svg" alt="">
+                                    <span :class="{ activeSpan: !forUser }" @click="forUser = false">Для эксперта</span>
+                                </div>
+                                <img src="@/assets/img/lol.svg" alt="">
+                            </div>
+                            <div class="body" v-if="forUser">
 
-                <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
+                                <p> На нашей платформе вы найдёте консультантов, готовых работать с вами индивидуально
+                                    или командами,
+                                    в зависимости от ваших потребностей. Мы стремимся обеспечить вас доступом к самым
+                                    компетентным
+                                    и квалифицированным экспертам, чтобы помочь вам достичь успеха и преуспеть в вашем
+                                    бизнесе.</p>
+                                <NuxtLink to="/">Подробнее о платформе</NuxtLink>
+                            </div>
+                            <div class="body" v-if="!forUser">
 
-                <img src="@/assets/img/prev.svg" alt="" class="prev2">
-                <img src="@/assets/img/next.svg" alt="" class="next2">
-
-            </div>
-        </div>
-    </section>
-    <section class="fullpage green">
-        <div class="reviews">
-            <div class="header">
-                <h1>Отзывы</h1>
-                <img src="@/assets/img/rev.svg" alt="">
-            </div>
-
-            <div class="reviews__slider">
-                <swiper :slides-per-view="3" :space-between="43" :breakpoints="breakpoints2" :navigation="navigation3"
-                    :modules="modules" @swiper="onSwiper" ref="mySwiper">
-                    <swiper-slide v-for="(slide, index) in reviews" :key="index"
-                        :class="{ 'scale-down': index === thirdSlideIndex }">
-                        <div class="popular__item">
-                            <h1>{{ slide.name }}</h1>
-                            <p>{{ slide.text }}
-                            </p>
-                            <p>{{ slide.text2 }}
-                            </p>
-
-                            <div class="text-right">
-                                <h2>{{ slide.first_name }}</h2>
+                                <p> ExpertHelp - это партнёрство для вас, как для эксперта в своей области. Мы стремимся
+                                    предоставить
+                                    вам средства и возможности для успешной и процветающей практики, обеспечивая
+                                    вас клиентами
+                                    и инструментами для эффективной работы и реализации ваших знаний</p>
+                                <NuxtLink to="/">Подробнее о платформе</NuxtLink>
                             </div>
                         </div>
-                    </swiper-slide>
-                </swiper>
+                    </div>
+                </section>
+            </swiper-slide>
+            <swiper-slide>
+                <section class="fullpage purple">
+                    <div class="popular">
+                        <h1>Популярные услуги</h1>
+                        <p>На нашей платформе предоставляются разнообразные экспертные услуги, чтобы помочь вам и вашему
+                            бизнесу достичь
+                            успеха, расти и развиваться.</p>
+                        <NuxtLink to="/">Посмотреть все</NuxtLink>
 
-                <div class="review__nav text-right">
-                    <img src="@/assets/img/prev.svg" class="prev3" alt="">
-                    <img src="@/assets/img/next.svg" class="next3" alt="">
+                        <div class="popular__slider">
+                            <swiper :slides-per-view="5" ref="slider" :space-between="30" :breakpoints="breakpoints"
+                                :navigation="navigation2" :modules="modules">
+                                <swiper-slide v-for="item in products" :key="item.id">
+                                    <div class="popular__item prodslider">
+                                        <img :src="item.main_image" alt="">
+
+                                        <h1>{{ item.name }}</h1>
+
+                                        <div class="text-center">
+                                            <h1>{{ item.price.toLocaleString() + ' ₸' }} </h1>
+                                            <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
+                                        </div>
+
+                                    </div>
+                                </swiper-slide>
+
+                            </swiper>
+
+                            <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
+
+                            <img src="@/assets/img/prev.svg" alt="" class="prev2">
+                            <img src="@/assets/img/next.svg" alt="" class="next2">
+
+                        </div>
+                    </div>
+                </section>
+            </swiper-slide>
+            <swiper-slide>
+                <section class="fullpage green">
+                    <div class="reviews">
+                        <div class="header">
+                            <h1>Отзывы</h1>
+                            <img src="@/assets/img/rev.svg" alt="">
+                        </div>
+
+                        <div class="reviews__slider">
+                            <swiper :slides-per-view="3" :space-between="43" :breakpoints="breakpoints2"
+                                :navigation="navigation3" :modules="modules" @swiper="onSwiper" ref="mySwiper">
+                                <swiper-slide v-for="(slide, index) in reviews" :key="index"
+                                    :class="{ 'scale-down': index === thirdSlideIndex }">
+                                    <div class="popular__item">
+                                        <h1>{{ slide.name }}</h1>
+                                        <p>{{ slide.text }}
+                                        </p>
+                                        <p>{{ slide.text2 }}
+                                        </p>
+
+                                        <div class="text-right">
+                                            <h2>{{ slide.first_name }}</h2>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                            </swiper>
+
+                            <div class="review__nav text-right">
+                                <img src="@/assets/img/prev.svg" class="prev3" alt="">
+                                <img src="@/assets/img/next.svg" class="next3" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </swiper-slide>
+        </swiper>
+    </div>
+    <div class="pagemob" v-else>
+        <div class="sections-menu">
+            <span class="menu-point" :class="{ active: activeSection == index }" @click="scrollToSection(index)"
+                v-for="(offset, index) in offsets" :key="index" :title="'Go to section ' + (index + 1)">
+            </span>
+        </div>
+        <section class="fullpage blue">
+
+            <div>
+                <h2>Объединяем лучших экспертов для вашего успеха</h2>
+                <img src="@/assets/img/scroll.svg" alt="" style="cursor: pointer;" @click="scrollToSection(1)">
+            </div>
+        </section>
+        <section class="fullpage black">
+            <div class="popular">
+                <h1>Популярные эксперты</h1>
+                <p>Эксперты платформы представляют собой опытных и квалифицированных специалистов в различных областях
+                    права.
+                    Они обеспечивают клиентов актуальной и профессиональной поддержкой, помогая разрешать вопросы,
+                    составлять
+                    документы и обеспечивать соблюдение законов, что делает платформу надёжным и удобным источником услуг
+                    для различных потребителей.</p>
+                <NuxtLink to="/">Посмотреть все</NuxtLink>
+
+                <div class="popular__slider">
+                    <swiper :slides-per-view="5" :space-between="30" :navigation="navigation" :breakpoints="breakpoints"
+                        :modules="modules">
+                        <swiper-slide v-for="item in experts.results" :key="item.id">
+                            <div class="popular__item">
+                                <img :src="item.photo" alt="">
+
+                                <h1>{{ item.category.category_name }}</h1>
+                                <h2>{{ item.user.first_name }}</h2>
+                                <p>{{ truncatedDescription(item.description, 70) }}</p>
+                                <div class="text-center">
+                                    <NuxtLink :to="'/expert/' + item.id">Подробнее</NuxtLink>
+                                </div>
+                            </div>
+                        </swiper-slide>
+
+                    </swiper>
+
+                    <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
+
+                    <img src="@/assets/img/prev.svg" alt="" class="prev">
+                    <img src="@/assets/img/next.svg" alt="" class="next">
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="fullpage red">
+            <div class="about">
+                <div class="roll">
+                    <img src="@/assets/img/textroll.png" alt="" class="roller">
+                    <img src="@/assets/img/nout.png" class="nout" alt="">
+                </div>
+
+                <div class="text">
+                    <div class="syk">
+                        <div class="header">
+                            <span :class="{ activeSpan: forUser }" @click="forUser = true">Для пользователя</span>
+                            <img src="@/assets/img/line.svg" alt="">
+                            <span :class="{ activeSpan: !forUser }" @click="forUser = false">Для эксперта</span>
+                        </div>
+                        <img src="@/assets/img/lol.svg" alt="">
+                    </div>
+                    <div class="body" v-if="forUser">
+
+                        <p> На нашей платформе вы найдёте консультантов, готовых работать с вами индивидуально
+                            или командами,
+                            в зависимости от ваших потребностей. Мы стремимся обеспечить вас доступом к самым компетентным
+                            и квалифицированным экспертам, чтобы помочь вам достичь успеха и преуспеть в вашем бизнесе.</p>
+                        <NuxtLink to="/">Подробнее о платформе</NuxtLink>
+                    </div>
+                    <div class="body" v-if="!forUser">
+
+                        <p> ExpertHelp - это партнёрство для вас, как для эксперта в своей области. Мы стремимся
+                            предоставить
+                            вам средства и возможности для успешной и процветающей практики, обеспечивая вас клиентами
+                            и инструментами для эффективной работы и реализации ваших знаний</p>
+                        <NuxtLink to="/">Подробнее о платформе</NuxtLink>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="fullpage purple">
+            <div class="popular">
+                <h1>Популярные услуги</h1>
+                <p>На нашей платформе предоставляются разнообразные экспертные услуги, чтобы помочь вам и вашему бизнесу
+                    достичь
+                    успеха, расти и развиваться.</p>
+                <NuxtLink to="/">Посмотреть все</NuxtLink>
+
+                <div class="popular__slider">
+                    <swiper :slides-per-view="5" ref="slider" :space-between="30" :breakpoints="breakpoints"
+                        :navigation="navigation2" :modules="modules">
+                        <swiper-slide v-for="item in products" :key="item.id">
+                            <div class="popular__item prodslider">
+                                <img :src="item.main_image" alt="">
+
+                                <h1>{{ item.name }}</h1>
+
+                                <div class="text-center">
+                                    <h1>{{ item.price.toLocaleString() + ' ₸' }} </h1>
+                                    <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
+                                </div>
+
+                            </div>
+                        </swiper-slide>
+
+                    </swiper>
+
+                    <img src="@/assets/img/xyetakakayato.svg" class="xyeta" alt="">
+
+                    <img src="@/assets/img/prev.svg" alt="" class="prev2">
+                    <img src="@/assets/img/next.svg" alt="" class="next2">
+
+                </div>
+            </div>
+        </section>
+        <section class="fullpage green">
+            <div class="reviews">
+                <div class="header">
+                    <h1>Отзывы</h1>
+                    <img src="@/assets/img/rev.svg" alt="">
+                </div>
+
+                <div class="reviews__slider">
+                    <swiper :slides-per-view="3" :space-between="43" :breakpoints="breakpoints2" :navigation="navigation3"
+                        :modules="modules" @swiper="onSwiper" ref="mySwiper">
+                        <swiper-slide v-for="(slide, index) in reviews" :key="index"
+                            :class="{ 'scale-down': index === thirdSlideIndex }">
+                            <div class="popular__item">
+                                <h1>{{ slide.name }}</h1>
+                                <p>{{ slide.text }}
+                                </p>
+                                <p>{{ slide.text2 }}
+                                </p>
+
+                                <div class="text-right">
+                                    <h2>{{ slide.first_name }}</h2>
+                                </div>
+                            </div>
+                        </swiper-slide>
+                    </swiper>
+
+                    <div class="review__nav text-right">
+                        <img src="@/assets/img/prev.svg" class="prev3" alt="">
+                        <img src="@/assets/img/next.svg" class="next3" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </template>
 <script>
 // Import Swiper Vue.js components
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
@@ -170,6 +344,7 @@ export default {
             inMove: false,
             inMoveDelay: 400,
             activeSection: 0,
+            isWideScreen: window.innerWidth > 1024,
             breakpoints: {
                 320: {
                     slidesPerView: 1,
@@ -229,7 +404,8 @@ export default {
             ],
             offsets: [],
             touchStartY: 0,
-            modules: [Navigation, Pagination],
+            modules: [Navigation],
+            modulesPage: [Pagination, Mousewheel],
             navigation: {
                 nextEl: '.next',
                 prevEl: '.prev'
@@ -379,11 +555,15 @@ export default {
             setTimeout(() => {
                 this.inMove = false;
             }, 1000);
+        },
+        onWindowResize() {
+            this.isWideScreen = window.innerWidth > 1024;
         }
     },
     mounted() {
         this.getPopulars()
         this.getExperts()
+        window.addEventListener('resize', this.onWindowResize);
         this.calculateSectionOffsets();
         this.thirdSlideIndex = 2;
 
@@ -399,6 +579,10 @@ export default {
             window.addEventListener('touchmove', this.touchMove, { passive: false });
         }
 
+    },
+    beforeDestroy() {
+        // Удаляем слушатель события при размонтировании компонента
+        window.removeEventListener('resize', this.onWindowResize);
     },
     destroyed() {
         window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM);
@@ -422,6 +606,25 @@ useSeoMeta({
 </script>
 
 <style lang="scss" scoped>
+.page {
+    height: 100vh;
+}
+
+.mySwiper {
+    height: 100%;
+}
+
+.testBlock {
+    height: 100vh;
+    background: #fff;
+
+    h1 {
+        padding-top: 150px;
+        color: #000;
+        font-size: 50px;
+    }
+}
+
 .prodslider {
     min-height: 450px;
     max-height: 450px;
