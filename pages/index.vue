@@ -283,7 +283,6 @@ export default {
         },
         onSwiper(swiper) {
             swiper.on('slideChange', () => {
-                // Получаем индекс третьего слайда (индексация начинается с 0)
                 this.thirdSlideIndex = swiper.realIndex + 2;
             });
         },
@@ -393,20 +392,20 @@ export default {
         const self = this;
 
         if (screenWidth >= 1025) {
-            window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
-            window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+            window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);
+            window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false });
 
-            window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
-            window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+            window.addEventListener('touchstart', this.touchStart, { passive: false });
+            window.addEventListener('touchmove', this.touchMove, { passive: false });
         }
 
     },
     destroyed() {
-        window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
-        window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
+        window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM);
+        window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });
 
-        window.removeEventListener('touchstart', this.touchStart); // mobile devices
-        window.removeEventListener('touchmove', this.touchMove); // mobile devices
+        window.removeEventListener('touchstart', this.touchStart);
+        window.removeEventListener('touchmove', this.touchMove);
     }
 };
 </script>
