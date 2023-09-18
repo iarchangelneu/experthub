@@ -94,8 +94,7 @@
                             <img :src="item.main_image" alt="">
 
                             <h1>{{ item.name }}</h1>
-                            <!-- <p>{{ truncatedDescription(item.short_description, 50) }}
-                            </p> -->
+
                             <div class="text-center">
                                 <h1>{{ item.price.toLocaleString() + ' ₸' }} </h1>
                                 <NuxtLink :to="'/product/' + item.id">Подробнее</NuxtLink>
@@ -150,11 +149,12 @@
 </template>
 <script>
 // Import Swiper Vue.js components
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import global from '~/mixins/global';
 import axios from 'axios';
@@ -229,7 +229,7 @@ export default {
             ],
             offsets: [],
             touchStartY: 0,
-            modules: [Navigation],
+            modules: [Navigation, Pagination],
             navigation: {
                 nextEl: '.next',
                 prevEl: '.prev'
@@ -383,6 +383,8 @@ export default {
 
         const screenWidth = window.innerWidth;
 
+        const self = this;
+
         if (screenWidth >= 1025) {
             window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
             window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
@@ -390,6 +392,12 @@ export default {
             window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
             window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
         }
+
+        window.addEventListener('wheel', function () {
+            setTimeout(() => {
+                self.inMove = false;
+            }, self.inMoveDelay);
+        });
     },
     destroyed() {
         window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
