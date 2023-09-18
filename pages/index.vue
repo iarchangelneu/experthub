@@ -297,10 +297,10 @@ export default {
             }
         },
 
-        handleMouseWheel(e) {
-            if (this.inMove) {
-                return; // Игнорировать скролл, если уже идет прокрутка
-            }
+        handleMouseWheel: function (e) {
+            if (this.inMove) return false;
+
+            this.inMove = true;
 
             if (e.wheelDelta < 30) {
                 this.moveUp();
@@ -308,11 +308,11 @@ export default {
                 this.moveDown();
             }
 
-            e.preventDefault();
-            this.inMove = true; // Установить флаг прокрутки
             setTimeout(() => {
-                this.inMove = false; // Сбросить флаг после задержки
+                this.inMove = false;
             }, this.inMoveDelay);
+
+            e.preventDefault();
             return false;
         },
 
