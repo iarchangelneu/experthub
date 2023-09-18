@@ -296,24 +296,22 @@ export default {
             }
         },
 
-        handleMouseWheel: function (e) {
-
-            if (e.wheelDelta < 30 && !this.inMove) {
-                this.moveUp();
-            } else if (e.wheelDelta > 30 && !this.inMove) {
+        handleMouseWheel(e) {
+            if (e.deltaY < 0 && !this.inMove) {
                 this.moveDown();
+            } else if (e.deltaY > 0 && !this.inMove) {
+                this.moveUp();
             }
 
             e.preventDefault();
             return false;
         },
 
-        handleMouseWheelDOM: function (e) {
-
-            if (e.detail > 0 && !this.inMove) {
-                this.moveUp();
-            } else if (e.detail < 0 && !this.inMove) {
+        handleMouseWheelDOM(e) {
+            if (e.detail < 0 && !this.inMove) {
                 this.moveDown();
+            } else if (e.detail > 0 && !this.inMove) {
+                this.moveUp();
             }
 
             return false;
@@ -393,11 +391,11 @@ export default {
             window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
         }
 
-        window.addEventListener('wheel', function () {
-            setTimeout(() => {
-                self.inMove = false;
-            }, self.inMoveDelay);
-        });
+        // window.addEventListener('wheel', function () {
+        //     setTimeout(() => {
+        //         self.inMove = false;
+        //     }, self.inMoveDelay);
+        // });
     },
     destroyed() {
         window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
