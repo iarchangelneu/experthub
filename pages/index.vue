@@ -363,21 +363,22 @@ export default {
             e.preventDefault();
 
             const currentY = e.touches[0].clientY;
+            const deltaY = currentY - this.touchStartY;
 
-            if (this.touchStartY < currentY) {
+            if (Math.abs(deltaY) > 50) {
                 this.inMove = true;
-                setTimeout(() => {
+                if (deltaY > 0) {
                     this.moveDown();
-                    this.touchStartY = 0;
-                }, 300); // Здесь 300 - это задержка в миллисекундах, которую вы можете настроить под свои нужды
-            } else {
-                this.inMove = true;
-                setTimeout(() => {
+                } else {
                     this.moveUp();
-                    this.touchStartY = 0;
-                }, 300); // Здесь также можно настроить задержку
+                }
+
+                setTimeout(() => {
+                    this.inMove = false;
+                }, 1000); // Здесь вы можете настроить задержку в миллисекундах
             }
 
+            this.touchStartY = 0;
             return false;
         }
     },
@@ -417,6 +418,7 @@ useSeoMeta({
     viewport: isMobile ? 'width=device-width, initial-scale=1.0' : 'width=1920',
 })
 </script>
+
 <style lang="scss" scoped>
 .prodslider {
     min-height: 450px;
