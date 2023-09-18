@@ -245,6 +245,8 @@ export default {
             forUser: true,
             thirdSlideIndex: -1,
             experts: [],
+            touchMoveInProgress: false,
+            touchStartX: 0,
             products: [],
         };
     },
@@ -355,24 +357,30 @@ export default {
         },
         touchStart(e) {
             e.preventDefault();
-
             this.touchStartY = e.touches[0].clientY;
+            this.touchStartX = e.touches[0].clientX; // Сохраняем начальную координату X
         },
         touchMove(e) {
-            if (this.inMove || Math.abs(this.touchStartY - e.touches[0].clientY) < 20) return false;
+            if (this.inMove) return false;
             e.preventDefault();
 
-            this.inMove = true;
+            const deltaY = this.touchStartY - e.touches[0].clientY;
+            const deltaX = this.touchStartX - e.touches[0].clientX; // Вычисляем разницу по X
 
-            if (this.touchStartY < e.touches[0].clientY) {
-                this.moveDown();
-            } else {
-                this.moveUp();
+            // Устанавливаем пороговые значения для вертикального и горизонтального движения
+            if (Math.abs(deltaY) >= 100 && Math.abs(deltaY) > Math.abs(deltaX)) {
+                this.inMove = true;
+
+                if (deltaY > 0) {
+                    this.moveDown();
+                } else {
+                    this.moveUp();
+                }
+
+                setTimeout(() => {
+                    this.inMove = false;
+                }, 300);
             }
-
-            setTimeout(() => {
-                this.inMove = false;
-            }, 300);
         }
     },
     mounted() {
