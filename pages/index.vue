@@ -359,27 +359,20 @@ export default {
             this.touchStartY = e.touches[0].clientY;
         },
         touchMove(e) {
-            if (this.inMove) return false;
+            if (this.inMove || Math.abs(this.touchStartY - e.touches[0].clientY) < 20) return false;
             e.preventDefault();
 
-            const currentY = e.touches[0].clientY;
-            const deltaY = currentY - this.touchStartY;
+            this.inMove = true;
 
-            if (Math.abs(deltaY) > 50) {
-                this.inMove = true;
-                if (deltaY > 0) {
-                    this.moveDown();
-                } else {
-                    this.moveUp();
-                }
-
-                setTimeout(() => {
-                    this.inMove = false;
-                }, 1000); // Здесь вы можете настроить задержку в миллисекундах
+            if (this.touchStartY < e.touches[0].clientY) {
+                this.moveDown();
+            } else {
+                this.moveUp();
             }
 
-            this.touchStartY = 0;
-            return false;
+            setTimeout(() => {
+                this.inMove = false;
+            }, 300);
         }
     },
     mounted() {
