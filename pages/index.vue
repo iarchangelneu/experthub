@@ -365,12 +365,19 @@ export default {
             const currentY = e.touches[0].clientY;
 
             if (this.touchStartY < currentY) {
-                this.moveDown();
+                this.inMove = true;
+                setTimeout(() => {
+                    this.moveDown();
+                    this.touchStartY = 0;
+                }, 300); // Здесь 300 - это задержка в миллисекундах, которую вы можете настроить под свои нужды
             } else {
-                this.moveUp();
+                this.inMove = true;
+                setTimeout(() => {
+                    this.moveUp();
+                    this.touchStartY = 0;
+                }, 300); // Здесь также можно настроить задержку
             }
 
-            this.touchStartY = 0;
             return false;
         }
     },
