@@ -24,7 +24,8 @@
 
                     <div class="price">
                         <h2>{{ product.price.toLocaleString() + ' ₸' }}</h2>
-                        <button ref="cartBtn" @click="addToCart()" v-if="accType == 'buyer'">Купить</button>
+                        <button ref="cartBtn" @click="addToCart()"
+                            v-if="accType == 'buyer' || accType == ''">Купить</button>
                     </div>
 
                     <div v-html="product.description"></div>
@@ -63,29 +64,36 @@ export default {
         addToCart() {
             const path = `${this.pathUrl}/api/buyer/add-product-basket`
             const csrf = this.getCSRFToken()
-            axios.defaults.headers.common['X-CSRFToken'] = csrf;
-            axios
-                .post(path, {
-                    products: this.product.id,
-                    amount: 1,
-                })
-                .then(response => {
-                    if (response.status == 201) {
-                        this.$refs.cartBtn.innerHTML = 'Добавлен в корзину'
-                        this.$refs.cartBtn.disabled = true
-                        this.$refs.cartBtn.classList.add('disabled')
-                        this.getCart()
-                    }
-                    else {
-                        this.$refs.cartBtn.innerHTML = 'Произошла ошибка, попробуйте еще раз'
-                        this.$refs.cartBtn.disabled = false
 
-                    }
-                    console.log(response)
-                })
-                .catch(error => {
-                    console.error(error)
-                })
+            if (!this.accType == '') {
+
+                axios.defaults.headers.common['X-CSRFToken'] = csrf;
+                axios
+                    .post(path, {
+                        products: this.product.id,
+                        amount: 1,
+                    })
+                    .then(response => {
+                        if (response.status == 201) {
+                            this.$refs.cartBtn.innerHTML = 'Добавлен в корзину'
+                            this.$refs.cartBtn.disabled = true
+                            this.$refs.cartBtn.classList.add('disabled')
+                            this.getCart()
+                        }
+                        else {
+                            this.$refs.cartBtn.innerHTML = 'Произошла ошибка, попробуйте еще раз'
+                            this.$refs.cartBtn.disabled = false
+
+                        }
+                        console.log(response)
+                    })
+                    .catch(error => {
+                        console.error(error)
+                    })
+            }
+            else {
+                window.location.href = '/login'
+            }
         },
 
         getProduct() {
@@ -115,6 +123,7 @@ export default {
             this.accType = 'seller'
         }
         else {
+            this.accType = ''
             console.log('not authorized')
         }
     }

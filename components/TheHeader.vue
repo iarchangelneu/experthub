@@ -3,7 +3,7 @@
         <div class="pcheader">
             <div class="crap">
 
-                <div class="headermen">
+                <div class="headermen" v-if="!ifHome.includes($route.name)">
                     <div class="trepik">
                         <NuxtLink to="/withdrawal">
                             <img src="@/assets/img/cash.svg" alt="" loading="lazy">
@@ -22,6 +22,33 @@
                         <NuxtLink :to="this.accountUrl">
                             <img src="@/assets/img/acc.svg" alt="" loading="lazy">
                         </NuxtLink>
+                        <div class="burg">
+                            <input id="menu__toggle" class="d-none" type="checkbox" />
+                            <label class="menu__btn mt-2" for="menu__toggle" @click="menuOpen = !menuOpen">
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="headermen" v-else>
+                    <div class="trepik">
+                        <a href="/withdrawal">
+                            <img src="@/assets/img/cash.svg" alt="" loading="lazy">
+                        </a>
+                        <a href="/cart">
+                            <img src="@/assets/img/cart.svg" v-if="accountType == 'buyer'" alt="" loading="lazy"
+                                style="cursor: pointer;">
+                        </a>
+
+
+                    </div>
+                    <a href="/">
+                        <img src="@/assets/img/headerlogo.svg" alt="" loading="lazy">
+                    </a>
+                    <div class="trepik">
+                        <a :href="this.accountUrl">
+                            <img src="@/assets/img/acc.svg" alt="" loading="lazy">
+                        </a>
                         <div class="burg">
                             <input id="menu__toggle" class="d-none" type="checkbox" />
                             <label class="menu__btn mt-2" for="menu__toggle" @click="menuOpen = !menuOpen">
@@ -65,6 +92,7 @@ export default {
             pathUrl: 'https://experthub.kz',
             userBalance: null,
             accountType: '',
+            ifHome: ['index'],
         }
     },
     methods: {
