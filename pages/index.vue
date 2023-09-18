@@ -246,6 +246,7 @@ export default {
             thirdSlideIndex: -1,
             experts: [],
             products: [],
+            lastScrollTime: 0,
         };
     },
     methods: {
@@ -297,13 +298,21 @@ export default {
         },
 
         handleMouseWheel(e) {
-            if (e.deltaY < 0 && !this.inMove) {
-                this.moveDown();
-            } else if (e.deltaY > 0 && !this.inMove) {
+            if (this.inMove) {
+                return; // Игнорировать скролл, если уже идет прокрутка
+            }
+
+            if (e.wheelDelta < 30) {
                 this.moveUp();
+            } else if (e.wheelDelta > 30) {
+                this.moveDown();
             }
 
             e.preventDefault();
+            this.inMove = true; // Установить флаг прокрутки
+            setTimeout(() => {
+                this.inMove = false; // Сбросить флаг после задержки
+            }, this.inMoveDelay);
             return false;
         },
 
@@ -391,11 +400,6 @@ export default {
             window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
         }
 
-        // window.addEventListener('wheel', function () {
-        //     setTimeout(() => {
-        //         self.inMove = false;
-        //     }, self.inMoveDelay);
-        // });
     },
     destroyed() {
         window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
